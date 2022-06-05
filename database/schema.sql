@@ -51,3 +51,5 @@ ALTER TABLE "nowww" ADD CONSTRAINT "nowww_fk1" FOREIGN KEY ("categoryId") REFERE
 
 
 
+
+
