@@ -9,7 +9,7 @@ CREATE TABLE "users" (
 	"userId" serial NOT NULL,
 	"username" TEXT NOT NULL,
 	"hashedPassword" TEXT,
-	"createdAt" timestamp with time zone NOT NULL,
+	"createdAt" timestamp with time zone,
 	"profilePicture" TEXT,
 	"link" TEXT,
 	"location" TEXT,
