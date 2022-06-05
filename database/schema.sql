@@ -5,7 +5,6 @@ set client_min_messages to warning;
 drop schema "public" cascade;
 
 create schema "public";
-
 CREATE TABLE "users" (
 	"userId" serial NOT NULL,
 	"username" TEXT NOT NULL,
@@ -37,7 +36,8 @@ CREATE TABLE "nowww" (
 
 CREATE TABLE "categories" (
 	"categoryId" int NOT NULL,
-	"name" int NOT NULL
+	"name" int NOT NULL,
+	CONSTRAINT "categories_pk" PRIMARY KEY ("categoryId")
 ) WITH (
   OIDS=FALSE
 );
