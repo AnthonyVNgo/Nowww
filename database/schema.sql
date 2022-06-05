@@ -8,14 +8,14 @@ create schema "public";
 CREATE TABLE "users" (
 	"userId" serial NOT NULL,
 	"username" TEXT NOT NULL,
-	"hashedPassword" TEXT NOT NULL,
+	"hashedPassword" TEXT,
 	"createdAt" timestamp with time zone NOT NULL,
-	"profilePicture" TEXT NOT NULL,
-	"link" TEXT NOT NULL,
-	"location" TEXT NOT NULL,
-	"tagline" TEXT NOT NULL,
-	"whatContent" TEXT NOT NULL,
-	"whyContent" TEXT NOT NULL,
+	"profilePicture" TEXT,
+	"link" TEXT,
+	"location" TEXT,
+	"tagline" TEXT,
+	"whatContent" TEXT,
+	"whyContent" TEXT,
 	CONSTRAINT "users_pk" PRIMARY KEY ("userId")
 ) WITH (
   OIDS=FALSE
