@@ -35,7 +35,7 @@ CREATE TABLE "nowww" (
 
 
 CREATE TABLE "categories" (
-	"categoryId" int NOT NULL,
+	"categoryId" serial NOT NULL,
 	"name" int NOT NULL,
 	CONSTRAINT "categories_pk" PRIMARY KEY ("categoryId")
 ) WITH (
@@ -47,8 +47,6 @@ CREATE TABLE "categories" (
 
 ALTER TABLE "nowww" ADD CONSTRAINT "nowww_fk0" FOREIGN KEY ("userId") REFERENCES "users"("userId");
 ALTER TABLE "nowww" ADD CONSTRAINT "nowww_fk1" FOREIGN KEY ("categoryId") REFERENCES "categories"("categoryId");
-
-
 
 
 
