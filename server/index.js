@@ -4,7 +4,7 @@ const express = require('express');
 const errorMiddleware = require('./error-middleware');
 const pg = require('pg');
 const db = new pg.Pool({
-  connectionString: 'postgres://dev:dev@localhost/finalProject?sslmode=disable',
+  connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
   }
