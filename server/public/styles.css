@@ -1,0 +1,21 @@
+svg {
+  margin-right: 1rem;
+}
+
+.list-group {
+  padding: 1rem 0;
+}
+
+.list-group-item {
+  border: none;
+}
+
+.card-title {
+  margin: 0;
+}
+
+img {
+  height: 300px;
+  object-fit: contain;
+  background-color: #f3f3f3;
+}
