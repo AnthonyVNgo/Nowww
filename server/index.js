@@ -1,3 +1,4 @@
+const ClientError = require('./client-error');
 require('dotenv/config');
 const path = require('path');
 const express = require('express');
@@ -35,6 +36,36 @@ app.get('/api/users', (req, res, next) => {
   `;
   db.query(sql)
     .then(result => res.json(result.rows))
+    .catch(err => next(err));
+});
+
+app.get('/api/users/:userId', (req, res, next) => {
+  const userId = Number(req.params.userId);
+  if (!userId) {
+    throw new ClientError(400, 'productId must be a positive integer');
+  }
+
+  const sql = `
+    select "userId",
+           "username",
+           "profilePicture",
+           "link",
+           "location",
+           "tagline",
+           "whatContent",
+           "whyContent"
+      from "users"
+      where "userId" = $1
+  `;
+
+  const paramQueryValue = [userId];
+  db.query(sql, paramQueryValue)
+    .then(queryResult => {
+      if (!queryResult.rows[0]) {
+        throw new ClientError(404, `cannot find product with productId ${userId}`);
+      }
+      res.json(queryResult.rows[0]);
+    })
     .catch(err => next(err));
 });
 
