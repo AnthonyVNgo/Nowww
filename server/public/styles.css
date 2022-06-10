@@ -29,3 +29,39 @@ img {
 .jc-center {
   justify-content: center;
 }
+
+.ai-center {
+  align-items: center;
+}
+
+.vh100 {
+  height: 75vh;
+}
+
+.bi-list {
+  color: white;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.sign-up-btn {
+  width: 100%;
+}
+
+.logo {
+  text-align: center;
+  font-size: 4rem;
+}
+
+.text-deco-none {
+  text-decoration: none;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+  overflow-x: hidden;
+}
