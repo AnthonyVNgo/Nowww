@@ -9,6 +9,7 @@ import Navbar from './components/navbar';
 import PageContainer from './components/page-container';
 import UserDetails from './pages/user-details';
 import MyNow from './pages/my-now';
+import UpdateMyNow from './pages/update-my-now';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -44,9 +45,15 @@ export default class App extends React.Component {
     this.setState({ user: null });
   }
 
+  handlegetbio() {
+
+  }
+
   renderPage() {
     const { path } = this.state.route;
     const { route } = this.state;
+    const { userId } = this.state.user;
+    // console.log('renderPage() path:', path)
     if (path === '') {
       return <Home />;
     }
@@ -57,18 +64,18 @@ export default class App extends React.Component {
       const userId = route.params.get('userId');
       return <UserDetails userId={userId} />;
     }
-    if (path === 'now') {
-      return <MyNow />;
+    if (path === 'my-now') {
+      return <MyNow user={userId}/>;
+    }
+
+    if (path === 'edit') {
+      return <UpdateMyNow user={userId}/>;
     }
     return <NotFound />;
   }
 
-  //   if(route.path === 'users') {
-  //   const userId = route.params.get('userId');
-  //   return <UserDetails userId={userId} />;
-  // }
-
   render() {
+    // console.log('user:', this.state.user)
     if (this.state.isAuthorizing) return null;
     const { user, route } = this.state;
     const { handleSignIn, handleSignOut } = this;

@@ -65,3 +65,19 @@ img {
   overflow: hidden;
   overflow-x: hidden;
 }
+
+.position-absolute {
+  position: absolute;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.bottom-0 {
+  bottom: 0%;
+}
+
+.w-fit-content {
+  width: fit-content;
+}

@@ -20,7 +20,8 @@ export default class Navbar extends React.Component {
                   </svg>
                 </button>
                 <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                  <li><a className="dropdown-item" href="my-now">My Nowww</a></li>
+                  <li><a className="dropdown-item" href="#my-now">My Nowww</a></li>
+                  <li><a className="dropdown-item" href="#edit">Edit Nowww</a></li>
                   <li><a className="dropdown-item" href="#">Nowww Pages</a></li>
                   <li><a className="dropdown-item" href="#" onClick={handleSignOut}>Sign-out</a></li>
                 </ul>
