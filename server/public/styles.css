@@ -81,3 +81,30 @@ img {
 .w-fit-content {
   width: fit-content;
 }
+
+.edit-input {
+  border: none;
+}
+
+.edit-input:hover {
+  border: 1px solid #005fcc;
+  border-radius: 5px;
+}
+
+.edit-input-large {
+  border: none;
+  width: 100%;
+}
+
+.edit-input-large:hover {
+  border: 1px solid #005fcc;
+  border-radius: 5px;
+}
+
+::placeholder {
+  color: black;
+}
+
+.bi-plus-square {
+  margin-top: -5px;
+}

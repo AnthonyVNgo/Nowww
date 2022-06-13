@@ -23,6 +23,13 @@ export default class MyNow extends React.Component {
       .then(user => this.setState({ user }));
     // console.log('fetch response, user:', user)
     // console.log('this.state.user:', this.state)
+
+    fetch(`api/my-now/${user}/nowww`)
+      .then(fetchResponse => fetchResponse.json())
+      .then(jsonResponse => {
+        this.setState({ todos: jsonResponse });
+        // console.log(this.state.todos);
+      });
   }
 
   render() {
@@ -97,7 +104,6 @@ export default class MyNow extends React.Component {
                   <p>{whyContent}</p>
                 </li>
               </ul>
-              {/* <NowwwEntry /> */}
             </div>
           </div>
           {/* <div className="row jc-center">
