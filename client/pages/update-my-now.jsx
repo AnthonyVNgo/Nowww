@@ -1,6 +1,5 @@
 import React from 'react';
 import TodoForm from '../components/todo-form';
-// import TodoList from '../components/todo-list';
 
 export default class UpdateMyNow extends React.Component {
   constructor(props) {
@@ -19,17 +18,19 @@ export default class UpdateMyNow extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    const user = this.props.user;
+    fetch(`/api/my-now/${user}`)
+      .then(res => res.json())
+      .then(user => this.setState({ user }));
+  }
+
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-    // console.log(this.state)
-    // console.log('name:', name)
-    // console.log('value:', value)
   }
 
   handleSubmit() {
-    // console.log('bbang')
-    // console.log(this.state)
     const user = this.props.user;
     // event.preventDefault();
     const req = {
@@ -41,24 +42,7 @@ export default class UpdateMyNow extends React.Component {
     };
     fetch(`api/my-now/${user}`, req)
       .then(res => {
-        // res.json()
-        // res.rows[0]
-        // console.log(res.rows[0])
-        // console.log(res)
-        // console.log(res)
-        // console.log(res.json())
       });
-    // .then(user => this.setState())
-    // .catch(err => console.log(err));
-
-  }
-
-  componentDidMount() {
-    // console.log('user prop:', this.props.user)
-    const user = this.props.user;
-    fetch(`/api/my-now/${user}`)
-      .then(res => res.json())
-      .then(user => this.setState({ user }));
   }
 
   render() {
@@ -75,7 +59,7 @@ export default class UpdateMyNow extends React.Component {
           <div className="col-12 col-md-12 col-lg-12 row ">
             <div className="col-12 col-md-6">
                 <div className='position-relative'>
-                  <img src='' className="card-img-top" />
+                  <img src={profilePicture} className="card-img-top" />
                   <div className="position-absolute bottom-0">
                     <div className="row jc-center"></div>
                     <div className="w-fit-content">
@@ -84,8 +68,7 @@ export default class UpdateMyNow extends React.Component {
                           Update Photo
                         </button>
                         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                          {/* <li><input type="text" name='profilePicture' onChange={handleChange} placeholder={profilePicture}/></li> */}
-                          <li><input type="url" name='profilePicture' className='edit-input' onChange={handleChange} placeholder={profilePicture}/></li>
+                          <li><input type="url" value={profilePicture} name='profilePicture' className='edit-input' onChange={handleChange} placeholder={profilePicture}/></li>
                         </ul>
                       </div>
                     </div>
@@ -133,19 +116,9 @@ export default class UpdateMyNow extends React.Component {
                 </li>
               </ul>
               <TodoForm />
-              {/* <TodoList /> */}
             </div>
           </div>
           <div className="row jc-center">
-              {/* <button type="submit" className="btn btn-primary sign-up-btn w-fit-content">
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus-square" viewBox="0 0 16 16">
-                  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-                </svg>
-              </span>
-              Save Changes
-            </button> */}
               <button type="submit" className="btn btn-primary sign-up-btn w-fit-content mt-5">
               Save Changes
             </button>

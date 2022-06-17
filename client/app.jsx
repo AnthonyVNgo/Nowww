@@ -53,7 +53,6 @@ export default class App extends React.Component {
     const { path } = this.state.route;
     const { route } = this.state;
     const { userId } = this.state.user;
-    // console.log('renderPage() path:', path)
     if (path === '') {
       return <Home />;
     }
@@ -75,7 +74,6 @@ export default class App extends React.Component {
   }
 
   render() {
-    // console.log('user:', this.state.user)
     if (this.state.isAuthorizing) return null;
     const { user, route } = this.state;
     const { handleSignIn, handleSignOut } = this;
