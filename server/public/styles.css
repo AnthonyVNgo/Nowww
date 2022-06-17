@@ -65,3 +65,46 @@ img {
   overflow: hidden;
   overflow-x: hidden;
 }
+
+.position-absolute {
+  position: absolute;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.bottom-0 {
+  bottom: 0%;
+}
+
+.w-fit-content {
+  width: fit-content;
+}
+
+.edit-input {
+  border: none;
+}
+
+.edit-input:hover {
+  border: 1px solid #005fcc;
+  border-radius: 5px;
+}
+
+.edit-input-large {
+  border: none;
+  width: 100%;
+}
+
+.edit-input-large:hover {
+  border: 1px solid #005fcc;
+  border-radius: 5px;
+}
+
+::placeholder {
+  color: black;
+}
+
+.bi-plus-square {
+  margin-top: -5px;
+}
