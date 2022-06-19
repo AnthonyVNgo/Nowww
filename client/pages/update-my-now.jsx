@@ -19,8 +19,9 @@ export default class UpdateMyNow extends React.Component {
   }
 
   componentDidMount() {
-    const user = this.props.user;
-    fetch(`/api/my-now/${user}`)
+    // const user = this.props.user;
+    // this.props.user = userId
+    fetch('/api/edit/')
       .then(res => res.json())
       .then(user => this.setState({ user }));
   }

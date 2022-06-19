@@ -12,7 +12,6 @@ export default class UserDetails extends React.Component {
     fetch(`/api/users/${this.props.userId}`)
       .then(res => res.json())
       .then(user => this.setState({ user }));
-    // console.log(this.state.user)
   }
 
   render() {

@@ -45,10 +45,6 @@ export default class App extends React.Component {
     this.setState({ user: null });
   }
 
-  handlegetbio() {
-
-  }
-
   renderPage() {
     const { path } = this.state.route;
     const { route } = this.state;
@@ -66,7 +62,6 @@ export default class App extends React.Component {
     if (path === 'my-now') {
       return <MyNow user={userId}/>;
     }
-
     if (path === 'edit') {
       return <UpdateMyNow user={userId}/>;
     }

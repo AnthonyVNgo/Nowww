@@ -9,6 +9,7 @@ const pg = require('pg');
 const jwt = require('jsonwebtoken');
 const jsonMiddleware = express.json();
 const publicPath = path.join(__dirname, 'public');
+// const authorizationMiddleware = require('./authorization-middleware');
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
@@ -131,10 +132,12 @@ app.post('/api/auth/sign-in', (req, res, next) => {
     .catch(err => next(err));
 });
 
-app.get('/api/my-now/:userId', (req, res, next) => {
-  const userId = Number(req.params.userId);
+// app.use(authorizationMiddleware);
+
+app.get('/api/my-now/', (req, res, next) => {
+  const { userId } = req.user.userId;
   if (!userId) {
-    throw new ClientError(400, 'productId must be a positive integer');
+    throw new ClientError(400, 'userId must be a positive integer');
   }
 
   const sql = `
@@ -154,30 +157,19 @@ app.get('/api/my-now/:userId', (req, res, next) => {
   db.query(sql, paramQueryValue)
     .then(queryResult => {
       if (!queryResult.rows[0]) {
-        throw new ClientError(404, `cannot find product with productId ${userId}`);
+        throw new ClientError(404, `cannot find user with userId: ${userId}`);
       }
       res.json(queryResult.rows[0]);
     })
     .catch(err => next(err));
 });
 
-app.post('/api/my-now/:userId', (req, res, next) => {
-  // console.log('fire!')
+app.post('/api/edit', (req, res, next) => {
   const { profilePicture, link, location, tagline, whatContent, whyContent } = req.body;
   const userId = Number(req.params.userId);
   if (!userId) {
-    throw new ClientError(400, 'productId must be a positive integer');
+    throw new ClientError(400, 'userId must be a positive integer');
   }
-
-  // insert into "users"("profilePicture", "link", "location", "tagline", "whatContent", "whyContent")
-  // values($1, $2, $3, $4, $5, $6)
-  // where "userId" = $2
-  // insert into "users"("link")
-  // values($1)
-
-  // insert into "users"("link")
-  //   values($1)
-  //     where "userId" = $2
 
   const sql = `
     update "users"
@@ -190,11 +182,7 @@ app.post('/api/my-now/:userId', (req, res, next) => {
     where "userId" = $7
   `;
 
-  // console.log(sql)
   const params = [profilePicture, link, location, tagline, whatContent, whyContent, userId];
-  // const params = ['f', '5'];
-  // const params = [link, location, userId];
-  // console.log('fire2')
 
   // const paramQueryValue = [userId];
   // db.query(sql, paramQueryValue)
@@ -203,11 +191,9 @@ app.post('/api/my-now/:userId', (req, res, next) => {
       // if (!queryResult.rows[0]) {
       //   throw new ClientError(404, `cannot find product with productId ${userId}`);
       // }
-      // console.log('fire4')
       res.json(queryResult.rows[0]);
     })
     .catch(err => next(err));
-// console.log('fire3')
 });
 
 app.use(errorMiddleware);
