@@ -49,6 +49,7 @@ export default class App extends React.Component {
     const { path } = this.state.route;
     const { route } = this.state;
     const { userId } = this.state.user;
+    // console.log(this.state.user)
     if (path === '') {
       return <Home />;
     }

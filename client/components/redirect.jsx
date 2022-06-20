@@ -9,7 +9,7 @@ export default function Redirect(props) {
   return null;
 }
 
-// this component is used in:
+// the Redirect component is used in:
 // home.jsx
 // auth.jsx
 
@@ -18,12 +18,26 @@ export default function Redirect(props) {
 // then the Redirect component's to property/prop is assigned the value of ''
 
 // Redirect.jsx
+// line 2.
+// The Window.location read - only property
+// returns a Location object with information
+// about the current location of the document.
+// line 2. the return of window.location is assigned to the variable url
+
+// line 3.
+// URL.hash
+// The hash property of the URL interface
+// is a string containing a '#'
+// followed by the fragment identifier of the URL.
 // line 3. if this component's to property/prop is === '',
 // then # is assigned to the hash property of the url object,
 // where the url object represents window.location
 
+// Summary
 // if user returns true, then the Redirect compononent's to property/prop is assigned to an empty string ''
 // which results in the window.location.hash to = #
+// www.example.com/#
+
 // assigning the window.location.hash to # leads to app.jsx renderPage() method to return the <Home /> page/component
 // app.jsx renderPage() returns <Home /> because path === ''
 // path === '' because of what happens in parse-route.js

@@ -43,7 +43,7 @@ app.get('/api/users', (req, res, next) => {
 app.get('/api/users/:userId', (req, res, next) => {
   const userId = Number(req.params.userId);
   if (!userId) {
-    throw new ClientError(400, 'productId must be a positive integer');
+    throw new ClientError(400, 'userId must be a positive integer');
   }
 
   const sql = `
@@ -63,7 +63,7 @@ app.get('/api/users/:userId', (req, res, next) => {
   db.query(sql, paramQueryValue)
     .then(queryResult => {
       if (!queryResult.rows[0]) {
-        throw new ClientError(404, `cannot find product with productId ${userId}`);
+        throw new ClientError(404, `cannot find user with userId: ${userId}`);
       }
       res.json(queryResult.rows[0]);
     })

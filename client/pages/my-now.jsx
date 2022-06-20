@@ -8,21 +8,20 @@ export default class MyNow extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   fetch('/api/my-now/' {
-  //     headers: {
-  //       'x-access-token':
-  //     }
-  //   })
-  //     .then(res => {
-  //       res.json();
-  //       // console.log(res)
-  //     })
-  //     .then(user => {
-  //       this.setState({ user });
-  //       // console.log(user)
-  //     });
-  // }
+  componentDidMount() {
+    fetch('/api/my-now/', {
+      method: 'GET',
+      headers: {
+        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
+      }
+    })
+      .then(res => {
+        res.json();
+      })
+      .then(user => {
+        this.setState({ user });
+      });
+  }
 
   // componentDidMount() {
   // const user = this.props.user;
