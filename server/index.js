@@ -135,7 +135,8 @@ app.post('/api/auth/sign-in', (req, res, next) => {
 app.use(authorizationMiddleware);
 
 app.get('/api/my-now/', (req, res, next) => {
-  const { userId } = req.user.userId;
+  const { userId } = req.user;
+  // console.log(userId)
   if (!userId) {
     throw new ClientError(400, 'userId must be a positive integer');
   }

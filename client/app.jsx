@@ -38,6 +38,7 @@ export default class App extends React.Component {
     const { user, token } = result;
     window.localStorage.setItem('react-context-jwt', token);
     this.setState({ user });
+    // console.log(this.state.user)
   }
 
   handleSignOut() {
@@ -48,8 +49,8 @@ export default class App extends React.Component {
   renderPage() {
     const { path } = this.state.route;
     const { route } = this.state;
-    const { userId } = this.state.user;
-    // console.log(this.state.user)
+    const userId = this.state.user;
+
     if (path === '') {
       return <Home />;
     }
@@ -62,6 +63,7 @@ export default class App extends React.Component {
     }
     if (path === 'my-now') {
       return <MyNow user={userId}/>;
+      // return <MyNow />;
     }
     if (path === 'edit') {
       return <UpdateMyNow user={userId}/>;

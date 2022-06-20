@@ -4,22 +4,30 @@ export default class MyNow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null
     };
   }
 
   componentDidMount() {
-    fetch('/api/my-now/', {
-      method: 'GET',
-      headers: {
-        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
-      }
-    })
+    // console.log(this.state.user)
+    // if(!this.state.user) console.log(`bang`)
+    this.setState({ user: this.props.user });
+    // console.log(this.state.user)
+
+    fetch('/api/my-now/')
+    // fetch('/api/my-now/', {
+    //   method: 'GET',
+    //   headers: {
+    //     'X-Access-Token': window.localStorage.getItem('react-context-jwt')
+    //   }
+    // })
       .then(res => {
         res.json();
+        // console.log(res)
       })
       .then(user => {
-        this.setState({ user });
+        // console.log(`user returns: ${user}`)
+        // this.setState({ user });
+        // console.log(user)
       });
   }
 
