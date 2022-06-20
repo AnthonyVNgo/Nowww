@@ -8,22 +8,28 @@ export default class MyNow extends React.Component {
     };
   }
 
-  componentDidMount() {
-    // const user = this.props.user;
-    // fetch(`/api/my-now/${user}`)
-    //   .then(res => res.json())
-    //   .then(user => this.setState({ user }));
+  // componentDidMount() {
+  //   fetch('/api/my-now/' {
+  //     headers: {
+  //       'x-access-token':
+  //     }
+  //   })
+  //     .then(res => {
+  //       res.json();
+  //       // console.log(res)
+  //     })
+  //     .then(user => {
+  //       this.setState({ user });
+  //       // console.log(user)
+  //     });
+  // }
 
-    fetch('/api/my-now/')
-      .then(res => {
-        res.json();
-        // console.log(res)
-      })
-      .then(user => {
-        this.setState({ user });
-        // console.log(user)
-      });
-  }
+  // componentDidMount() {
+  // const user = this.props.user;
+  // fetch(`/api/my-now/${user}`)
+  //   .then(res => res.json())
+  //   .then(user => this.setState({ user }));
+  // }
 
   render() {
     if (!this.state.user) return null;

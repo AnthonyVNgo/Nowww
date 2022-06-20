@@ -9,7 +9,7 @@ const pg = require('pg');
 const jwt = require('jsonwebtoken');
 const jsonMiddleware = express.json();
 const publicPath = path.join(__dirname, 'public');
-// const authorizationMiddleware = require('./authorization-middleware');
+const authorizationMiddleware = require('./authorization-middleware');
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
@@ -132,7 +132,7 @@ app.post('/api/auth/sign-in', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// app.use(authorizationMiddleware);
+app.use(authorizationMiddleware);
 
 app.get('/api/my-now/', (req, res, next) => {
   const { userId } = req.user.userId;
