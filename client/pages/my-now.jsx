@@ -1,4 +1,6 @@
 import React from 'react';
+import Redirect from '../components/redirect';
+import AppContext from '../lib/app-context';
 
 export default class MyNow extends React.Component {
   constructor(props) {
@@ -8,41 +10,30 @@ export default class MyNow extends React.Component {
   }
 
   componentDidMount() {
-    // console.log(this.state.user)
-    // if(!this.state.user) console.log(`bang`)
-    this.setState({ user: this.props.user });
-    // console.log(this.state.user)
-
-    fetch('/api/my-now/')
-    // fetch('/api/my-now/', {
-    //   method: 'GET',
-    //   headers: {
-    //     'X-Access-Token': window.localStorage.getItem('react-context-jwt')
-    //   }
-    // })
-      .then(res => {
-        res.json();
-        // console.log(res)
-      })
+    if (!this.context.user) return;
+    // const token = window.localStorage.getItem('react-context-jwt');
+    // console.log(token)
+    fetch('/api/my-now/', {
+      method: 'GET',
+      headers: {
+        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
+      }
+    })
+      .then(res => res.json())
       .then(user => {
-        // console.log(`user returns: ${user}`)
-        // this.setState({ user });
-        // console.log(user)
+        // console.log('res.json response, user:', user)
+        this.setState({ user });
       });
   }
 
-  // componentDidMount() {
-  // const user = this.props.user;
-  // fetch(`/api/my-now/${user}`)
-  //   .then(res => res.json())
-  //   .then(user => this.setState({ user }));
-  // }
-
   render() {
+    if (!this.context.user) return <Redirect to="sign-in" />;
     if (!this.state.user) return null;
+
     const {
       username, profilePicture, tagline, whatContent, whyContent, link, location
     } = this.state.user;
+
     return (
       <form onSubmit={this.handleSubmit}>
       <div className="container">
@@ -103,3 +94,5 @@ export default class MyNow extends React.Component {
     );
   }
 }
+
+MyNow.contextType = AppContext;

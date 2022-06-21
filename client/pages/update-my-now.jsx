@@ -1,11 +1,12 @@
 import React from 'react';
 import TodoForm from '../components/todo-form';
+import Redirect from '../components/redirect';
+import AppContext from '../lib/app-context';
 
 export default class UpdateMyNow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null,
       profilePicture: '',
       tagline: '',
       whatContent: '',
@@ -19,11 +20,26 @@ export default class UpdateMyNow extends React.Component {
   }
 
   componentDidMount() {
-    // const user = this.props.user;
-    // this.props.user = userId
-    fetch('/api/edit/')
+    if (!this.context.user) return;
+
+    fetch('/api/my-now/', {
+      method: 'GET',
+      headers: {
+        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
+      }
+    })
       .then(res => res.json())
-      .then(user => this.setState({ user }));
+      .then(user => {
+        this.setState({
+          user,
+          profilePicture: user.profilePicture,
+          tagline: user.tagline,
+          whatContent: user.whatContent,
+          whyContent: user.whyContent,
+          link: user.link,
+          location: user.location
+        });
+      });
   }
 
   handleChange(event) {
@@ -32,24 +48,32 @@ export default class UpdateMyNow extends React.Component {
   }
 
   handleSubmit() {
-    const user = this.props.user;
+    // const user = this.props.user;
     // event.preventDefault();
     const req = {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/json'
+        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
       },
       body: JSON.stringify(this.state)
     };
-    fetch(`api/my-now/${user}`, req)
+    fetch('api/edit', req)
       .then(res => {
+      })
+      .then(finalResponse => {
+        // console.log('bang')
+        // console.log(finalResponse)
       });
+
   }
 
   render() {
-    // const { handleChange, handleSubmit } = this;
-    const { handleChange } = this;
+    // console.log(this.state)
+    if (!this.context.user) return <Redirect to="sign-in" />;
     if (!this.state.user) return null;
+    const { handleChange } = this;
+    if (!this.state.user) return <Redirect to="sign-in" />;
     const {
       username, profilePicture, tagline, whatContent, whyContent, link, location
     } = this.state.user;
@@ -130,3 +154,5 @@ export default class UpdateMyNow extends React.Component {
     );
   }
 }
+
+UpdateMyNow.contextType = AppContext;

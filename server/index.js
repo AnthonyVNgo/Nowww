@@ -136,7 +136,6 @@ app.use(authorizationMiddleware);
 
 app.get('/api/my-now/', (req, res, next) => {
   const { userId } = req.user;
-  // console.log(userId)
   if (!userId) {
     throw new ClientError(400, 'userId must be a positive integer');
   }
@@ -166,8 +165,10 @@ app.get('/api/my-now/', (req, res, next) => {
 });
 
 app.post('/api/edit', (req, res, next) => {
+  const { userId } = req.userId;
+  // console.log(userId)
+
   const { profilePicture, link, location, tagline, whatContent, whyContent } = req.body;
-  const userId = Number(req.params.userId);
   if (!userId) {
     throw new ClientError(400, 'userId must be a positive integer');
   }
@@ -184,7 +185,6 @@ app.post('/api/edit', (req, res, next) => {
   `;
 
   const params = [profilePicture, link, location, tagline, whatContent, whyContent, userId];
-
   // const paramQueryValue = [userId];
   // db.query(sql, paramQueryValue)
   db.query(sql, params)
