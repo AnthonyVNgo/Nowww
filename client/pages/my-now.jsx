@@ -38,16 +38,13 @@ export default class MyNow extends React.Component {
       <form onSubmit={this.handleSubmit}>
       <div className="container">
         <div className="row jc-center flex card shadow-sm p-3">
-          <div className="col-12 col-md-12 col-lg-12 row ">
+          <div className="col-12 col-md-12 col-lg-12 row m-0 p-0">
             <div className="col-12 col-md-6">
-                <div className='position-relative'>
-                  <img src={profilePicture} className="card-img-top" />
-                  <div className="position-absolute bottom-0">
-                    <div className="row"></div>
-                </div>
+              <div className=''>
+                <img src={profilePicture} className="card-img-top" />
+              </div>
             </div>
 
-            </div>
             <div className="col-12 col-md-6">
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">

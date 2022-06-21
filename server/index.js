@@ -8,6 +8,7 @@ const argon2 = require('argon2');
 const pg = require('pg');
 const jwt = require('jsonwebtoken');
 const jsonMiddleware = express.json();
+const formMiddleWare = express.urlencoded();
 const publicPath = path.join(__dirname, 'public');
 const authorizationMiddleware = require('./authorization-middleware');
 const db = new pg.Pool({
@@ -18,6 +19,7 @@ const db = new pg.Pool({
 });
 
 app.use(jsonMiddleware);
+app.use(formMiddleWare);
 
 if (process.env.NODE_ENV === 'development') {
   app.use(require('./dev-middleware')(publicPath));
@@ -164,9 +166,12 @@ app.get('/api/my-now/', (req, res, next) => {
     .catch(err => next(err));
 });
 
-app.post('/api/edit', (req, res, next) => {
-  const { userId } = req.userId;
-  // console.log(userId)
+app.put('/api/edit', (req, res, next) => {
+  const { userId } = req.user;
+  // console.log(`there's a fire in the terminal`)
+  // console.log(`req.user:`, req.user)
+  // console.log(`req.body:`, req.body)
+  // console.log(`req.location:`, req.location)
 
   const { profilePicture, link, location, tagline, whatContent, whyContent } = req.body;
   if (!userId) {
@@ -175,12 +180,12 @@ app.post('/api/edit', (req, res, next) => {
 
   const sql = `
     update "users"
-    set "profilePicture" = $1,
-        "link" = $2,
-        "location" = $3,
-        "tagline" = $4,
-        "whatContent" = $5,
-        "whyContent" = $6
+    set "profilePicture" = coalesce($1, "profilePicture"),
+        "link" = coalesce($2, "link"),
+        "location" = coalesce($3, "location"),
+        "tagline" = coalesce($4, "tagline"),
+        "whatContent" = coalesce($5, "whatContent"),
+        "whyContent" = coalesce($6, "whyContent")
     where "userId" = $7
   `;
 
