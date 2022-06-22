@@ -49,7 +49,6 @@ export default class UpdateMyNow extends React.Component {
   }
 
   handleSubmit() {
-    // console.log(`update-my-now.jsx handleSubmit fired`)
     // event.preventDefault();
     const req = {
       method: 'PUT',
@@ -81,7 +80,6 @@ export default class UpdateMyNow extends React.Component {
       .then(data => {
         const nowArrPlusNewNowEntry = nowArr.concat(data);
         this.setState({ nowEntry: nowArrPlusNewNowEntry });
-        // console.log('fire in the browser console')
       });
   }
 
@@ -146,13 +144,9 @@ export default class UpdateMyNow extends React.Component {
                     <input type="textarea" placeholder={whyContent} name='whyContent' className='edit-input-large' onChange={handleChange}/>
                 </li>
               </ul>
-              {/* <NowwwForm onChange={this.handleChange} onSubmit={this.addNowEntry}/> */}
-
             </div>
           </div>
-          {/* <div className="row jc-center position-absolute top-0 right-0"> */}
           <div className="position-absolute top-0 right-0">
-              {/* <button type="submit" className="btn btn-primary sign-up-btn w-fit-content mt-5"> */}
             <button type="submit" className="btn btn-primary sign-up-btn w-fit-content mt-3 me-3">
               save changes
             </button>

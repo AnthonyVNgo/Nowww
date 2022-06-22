@@ -36,7 +36,7 @@ CREATE TABLE "nowww" (
 
 CREATE TABLE "categories" (
 	"categoryId" serial NOT NULL,
-	"name" int NOT NULL,
+	"name" TEXT,
 	CONSTRAINT "categories_pk" PRIMARY KEY ("categoryId")
 ) WITH (
   OIDS=FALSE

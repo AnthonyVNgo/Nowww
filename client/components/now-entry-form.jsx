@@ -14,7 +14,6 @@ export default class NowwwEntryForm extends React.Component {
     this.setState({
       entry: event.target.value
     });
-    // console.log(`handleChange fired`)
   }
 
   handleSubmit(event) {
@@ -24,7 +23,6 @@ export default class NowwwEntryForm extends React.Component {
     };
     this.props.onSubmit(newNowEntry);
     this.setState({ entry: '' });
-    // console.log('now-entry-form.jsx handleSubmit fired')
   }
 
   render() {
@@ -67,4 +65,4 @@ export default class NowwwEntryForm extends React.Component {
 // line 66. addNowEntry(newNowEntry) has 1 parameter and takes the NewNowEntry variable from now-entry-from.jsx as an argument
 // line 72. the fetch POST request req.body is set as the returned value from JSON.stringify(newNowEntry) - the JSON version of the newNowEntry value
 // line 75. nowArr is assigned the value of this.state.nowEntry, an array meant to store an array/list of now-entries
-// line 80. after the client's fetch POST request, the server, Node + Express, responds with
+// line 80. after the client's fetch POST request, the server, Node + Express, responds with.. to be continued
