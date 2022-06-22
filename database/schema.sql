@@ -47,7 +47,3 @@ CREATE TABLE "categories" (
 
 ALTER TABLE "nowww" ADD CONSTRAINT "nowww_fk0" FOREIGN KEY ("userId") REFERENCES "users"("userId");
 ALTER TABLE "nowww" ADD CONSTRAINT "nowww_fk1" FOREIGN KEY ("categoryId") REFERENCES "categories"("categoryId");
-
-
-
-

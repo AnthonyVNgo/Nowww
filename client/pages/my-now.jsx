@@ -11,8 +11,6 @@ export default class MyNow extends React.Component {
 
   componentDidMount() {
     if (!this.context.user) return;
-    // const token = window.localStorage.getItem('react-context-jwt');
-    // console.log(token)
     fetch('/api/my-now/', {
       method: 'GET',
       headers: {
@@ -21,7 +19,6 @@ export default class MyNow extends React.Component {
     })
       .then(res => res.json())
       .then(user => {
-        // console.log('res.json response, user:', user)
         this.setState({ user });
       });
   }

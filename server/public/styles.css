@@ -92,6 +92,16 @@ img {
   margin: 0;
 }
 
+.list-group-item > p {
+  margin: 0;
+  padding: 0;
+}
+
+.list-group-item > span {
+  margin: 0;
+  padding: 0;
+}
+
 .edit-input:hover {
   border: 1px solid #005fcc;
   border-radius: 5px;
@@ -127,4 +137,16 @@ img {
 
 .dropdown-menu > li > input.edit-input {
   width: 100%;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.bi-save {
+  margin: 0;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoForm from '../components/todo-form';
+import NowwwEntryForm from '../components/now-entry-form';
 import Redirect from '../components/redirect';
 import AppContext from '../lib/app-context';
 
@@ -13,10 +13,11 @@ export default class UpdateMyNow extends React.Component {
       whyContent: '',
       link: '',
       location: '',
-      nowwwContent: []
+      nowEntry: []
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.addNowEntry = this.addNowEntry.bind(this);
   }
 
   componentDidMount() {
@@ -48,7 +49,6 @@ export default class UpdateMyNow extends React.Component {
   }
 
   handleSubmit() {
-    // event.preventDefault();
     const req = {
       method: 'PUT',
       headers: {
@@ -63,6 +63,25 @@ export default class UpdateMyNow extends React.Component {
       });
   }
 
+  addNowEntry(newNowEntry) {
+    const init = {
+      method: 'POST',
+      headers: {
+        'X-Access-Token': window.localStorage.getItem('react-context-jwt'), 'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newNowEntry)
+    };
+
+    const nowArr = this.state.nowEntry;
+
+    fetch('api/now-entry', init)
+      .then(fetchResponse => fetchResponse.json())
+      .then(data => {
+        const nowArrPlusNewNowEntry = nowArr.concat(data);
+        this.setState({ nowEntry: nowArrPlusNewNowEntry });
+      });
+  }
+
   render() {
     if (!this.context.user) return <Redirect to="sign-in" />;
     if (!this.state.user) return null;
@@ -72,13 +91,13 @@ export default class UpdateMyNow extends React.Component {
       username, profilePicture, tagline, whatContent, whyContent, link, location
     } = this.state.user;
     return (
-      <form onSubmit={this.handleSubmit}>
       <div className="container">
         <div className="row jc-center flex card shadow-sm p-3">
-            <div className="col-12 col-md-12 col-lg-12 row m-0 p-0">
-              <div className="col-12 col-md-6 flex jc-center">
+          <form onSubmit={this.handleSubmit}>
+            <div className="col-12 col-md-12 col-lg-12 row m-0 p-0 position-relative">
+                <div className="col-12 col-md-6">
                 <div className="dropdown">
-                    <button className='img-btn' type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button className='img-btn width-100' type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                       <img src={profilePicture} className="card-img-top" />
                     </button>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -124,17 +143,17 @@ export default class UpdateMyNow extends React.Component {
                     <input type="textarea" placeholder={whyContent} name='whyContent' className='edit-input-large' onChange={handleChange}/>
                 </li>
               </ul>
-              <TodoForm />
             </div>
           </div>
-          <div className="row jc-center">
-              <button type="submit" className="btn btn-primary sign-up-btn w-fit-content mt-5">
-              Save Changes
+          <div className="position-absolute top-0 right-0">
+            <button type="submit" className="btn btn-primary sign-up-btn w-fit-content mt-3 me-3">
+              save changes
             </button>
           </div>
+        </form>
+          <NowwwEntryForm onSubmit={this.addNowEntry} />
         </div>
       </div>
-      </form>
     );
   }
 }
