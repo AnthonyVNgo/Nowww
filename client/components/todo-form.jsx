@@ -1,10 +1,10 @@
 import React from 'react';
 
-class TodoForm extends React.Component {
+export default class NowEntry extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      task: ''
+      entry: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -12,22 +12,22 @@ class TodoForm extends React.Component {
 
   handleChange(event) {
     this.setState({
-      task: event.target.value
+      entry: event.target.value
     });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const newTodo = {
-      task: this.state.task,
+      entry: this.state.entry,
       isCompleted: false
     };
     this.props.onSubmit(newTodo);
-    this.setState({ task: '' });
+    this.setState({ entry: '' });
   }
 
   render() {
-    const value = this.state.task;
+    const value = this.state.entry;
     return (
       <form className="input-group mb-4 shadow-sm" onSubmit={this.handleSubmit}>
         <input
@@ -50,5 +50,3 @@ class TodoForm extends React.Component {
     );
   }
 }
-
-export default TodoForm;

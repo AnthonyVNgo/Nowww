@@ -13,7 +13,7 @@ export default class UpdateMyNow extends React.Component {
       whyContent: '',
       link: '',
       location: '',
-      nowwwContent: []
+      nowEntry: []
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -63,6 +63,25 @@ export default class UpdateMyNow extends React.Component {
       });
   }
 
+  addTodo(newNowEntry) {
+    const init = {
+      method: 'POST',
+      headers: {
+        'X-Access-Token': window.localStorage.getItem('react-context-jwt'), 'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newNowEntry)
+    };
+
+    const nowArr = this.state.nowEntry;
+
+    fetch('api/now-entry', init)
+      .then(fetchResponse => fetchResponse.json())
+      .then(data => {
+        const newArr = nowArr.concat(data);
+        this.setState({ nowEntry: newArr });
+      });
+  }
+
   render() {
     if (!this.context.user) return <Redirect to="sign-in" />;
     if (!this.state.user) return null;
@@ -76,9 +95,10 @@ export default class UpdateMyNow extends React.Component {
       <div className="container">
         <div className="row jc-center flex card shadow-sm p-3">
             <div className="col-12 col-md-12 col-lg-12 row m-0 p-0">
-              <div className="col-12 col-md-6 flex jc-center">
+              {/* <div className="col-12 col-md-6 flex jc-center"> */}
+                <div className="col-12 col-md-6">
                 <div className="dropdown">
-                    <button className='img-btn' type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button className='img-btn width-100' type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                       <img src={profilePicture} className="card-img-top" />
                     </button>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
