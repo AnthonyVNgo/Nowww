@@ -1,11 +1,12 @@
 import React from 'react';
 import TodoForm from '../components/todo-form';
+import Redirect from '../components/redirect';
+import AppContext from '../lib/app-context';
 
 export default class UpdateMyNow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null,
       profilePicture: '',
       tagline: '',
       whatContent: '',
@@ -19,10 +20,26 @@ export default class UpdateMyNow extends React.Component {
   }
 
   componentDidMount() {
-    const user = this.props.user;
-    fetch(`/api/my-now/${user}`)
+    if (!this.context.user) return;
+
+    fetch('/api/my-now/', {
+      method: 'GET',
+      headers: {
+        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
+      }
+    })
       .then(res => res.json())
-      .then(user => this.setState({ user }));
+      .then(user => {
+        this.setState({
+          user,
+          profilePicture: user.profilePicture,
+          tagline: user.tagline,
+          whatContent: user.whatContent,
+          whyContent: user.whyContent,
+          link: user.link,
+          location: user.location
+        });
+      });
   }
 
   handleChange(event) {
@@ -31,24 +48,26 @@ export default class UpdateMyNow extends React.Component {
   }
 
   handleSubmit() {
-    const user = this.props.user;
     // event.preventDefault();
     const req = {
-      method: 'POST',
+      method: 'PUT',
       headers: {
-        'Content-Type': 'application/json'
+        'X-Access-Token': window.localStorage.getItem('react-context-jwt'), 'Content-Type': 'application/json'
       },
       body: JSON.stringify(this.state)
     };
-    fetch(`api/my-now/${user}`, req)
+    fetch('api/edit', req)
       .then(res => {
+      })
+      .then(finalResponse => {
       });
   }
 
   render() {
-    // const { handleChange, handleSubmit } = this;
-    const { handleChange } = this;
+    if (!this.context.user) return <Redirect to="sign-in" />;
     if (!this.state.user) return null;
+    if (!this.state.user) return <Redirect to="sign-in" />;
+    const { handleChange } = this;
     const {
       username, profilePicture, tagline, whatContent, whyContent, link, location
     } = this.state.user;
@@ -56,27 +75,17 @@ export default class UpdateMyNow extends React.Component {
       <form onSubmit={this.handleSubmit}>
       <div className="container">
         <div className="row jc-center flex card shadow-sm p-3">
-          <div className="col-12 col-md-12 col-lg-12 row ">
-            <div className="col-12 col-md-6">
-                <div className='position-relative'>
-                  <img src={profilePicture} className="card-img-top" />
-                  <div className="position-absolute bottom-0">
-                    <div className="row jc-center"></div>
-                    <div className="w-fit-content">
-                      <div className="dropup w-fit-content">
-                        <button className="btn btn-dark" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                          Update Photo
-                        </button>
-                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                          <li><input type="url" value={profilePicture} name='profilePicture' className='edit-input' onChange={handleChange} placeholder={profilePicture}/></li>
-                        </ul>
-                      </div>
-                    </div>
+            <div className="col-12 col-md-12 col-lg-12 row m-0 p-0">
+              <div className="col-12 col-md-6 flex jc-center">
+                <div className="dropdown">
+                    <button className='img-btn' type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src={profilePicture} className="card-img-top" />
+                    </button>
+                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><input type="url" name='profilePicture' className='edit-input' onChange={handleChange} placeholder={profilePicture} /></li>
+                    </ul>
                 </div>
-
-                </div>
-
-            </div>
+             </div>
             <div className="col-12 col-md-6">
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
@@ -129,3 +138,5 @@ export default class UpdateMyNow extends React.Component {
     );
   }
 }
+
+UpdateMyNow.contextType = AppContext;
