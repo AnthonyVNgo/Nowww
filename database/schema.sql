@@ -24,10 +24,10 @@ CREATE TABLE "users" (
 
 
 CREATE TABLE "nowww" (
-	"userId" int NOT NULL,
-	"category" TEXT NOT NULL,
-	"content" TEXT NOT NULL,
-	"categoryId" int NOT NULL
+	"userId" int,
+	"category" TEXT,
+	"content" TEXT,
+	"categoryId" int
 ) WITH (
   OIDS=FALSE
 );
@@ -47,6 +47,11 @@ CREATE TABLE "categories" (
 
 ALTER TABLE "nowww" ADD CONSTRAINT "nowww_fk0" FOREIGN KEY ("userId") REFERENCES "users"("userId");
 ALTER TABLE "nowww" ADD CONSTRAINT "nowww_fk1" FOREIGN KEY ("categoryId") REFERENCES "categories"("categoryId");
+
+
+
+
+
 
 
 
