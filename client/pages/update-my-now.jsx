@@ -49,7 +49,6 @@ export default class UpdateMyNow extends React.Component {
   }
 
   handleSubmit() {
-    // event.preventDefault();
     const req = {
       method: 'PUT',
       headers: {

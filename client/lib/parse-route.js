@@ -8,7 +8,6 @@ export default function parseRoute(hashRoute) {
 }
 
 // contextual information
-
 // window.location.hash:
 // The hash property of the Location interface returns
 // a string containing a '#' followed by

@@ -200,12 +200,6 @@ app.put('/api/edit', (req, res, next) => {
 app.post('/api/now-entry', (req, res, next) => {
   const { userId } = req.user;
   const { entry } = req.body;
-  // console.log(`entry:`, entry)
-  // console.log(`req.user:`, req.user)
-  // console.log('entry-content:', entryContent)
-  // console.log(`req.user:`, req.user)
-  // console.log(`userId:`, userId)
-  // console.log(`req.body:`, req.body)
 
   if (!userId) {
     throw new ClientError(400, 'userId must be a positive integer');
