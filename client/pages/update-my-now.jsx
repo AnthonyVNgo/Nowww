@@ -42,20 +42,12 @@ export default class UpdateMyNow extends React.Component {
       });
   }
 
-  // profilePicture: '',
-  // tagline: '',
-  // whatContent: '',
-  // whyContent: '',
-  // link: '',
-  // location: ''
-
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
 
   handleSubmit() {
-    // const user = this.props.user;
     // event.preventDefault();
     const req = {
       method: 'PUT',
@@ -68,7 +60,6 @@ export default class UpdateMyNow extends React.Component {
       .then(res => {
       })
       .then(finalResponse => {
-        // console.log(`update-my-now.jsx req.body:`, req.body)
       });
   }
 

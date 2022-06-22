@@ -38,9 +38,6 @@ export default class App extends React.Component {
     const { user, token } = result;
     window.localStorage.setItem('react-context-jwt', token);
     this.setState({ user });
-    // console.log(this.state.user)
-    // console.log(user)
-    // console.log(result)
   }
 
   handleSignOut() {
@@ -54,29 +51,19 @@ export default class App extends React.Component {
     const userId = this.state.user;
 
     if (path === '') {
-      // console.log('path:', path)
-      // console.log(this.state.user)
       return <Home />;
     }
     if (path === 'sign-in' || path === 'sign-up') {
-      // console.log('path:', path)
-      // console.log(this.state.user)
       return <Auth />;
     }
     if (path === 'users') {
-      // console.log('path:', path)
-      // console.log(this.state.user)
       const userId = route.params.get('userId');
       return <UserDetails userId={userId} />;
     }
     if (path === 'my-now') {
-      // console.log('path:', path)
-      // console.log(this.state.user)
       return <MyNow user={userId}/>;
     }
     if (path === 'edit') {
-      // console.log('path:', path)
-      // console.log(this.state.user)
       return <UpdateMyNow user={userId}/>;
     }
     return <NotFound />;

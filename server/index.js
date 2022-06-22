@@ -168,10 +168,6 @@ app.get('/api/my-now/', (req, res, next) => {
 
 app.put('/api/edit', (req, res, next) => {
   const { userId } = req.user;
-  // console.log(`there's a fire in the terminal`)
-  // console.log(`req.user:`, req.user)
-  // console.log(`req.body:`, req.body)
-  // console.log(`req.location:`, req.location)
 
   const { profilePicture, link, location, tagline, whatContent, whyContent } = req.body;
   if (!userId) {
@@ -190,13 +186,11 @@ app.put('/api/edit', (req, res, next) => {
   `;
 
   const params = [profilePicture, link, location, tagline, whatContent, whyContent, userId];
-  // const paramQueryValue = [userId];
-  // db.query(sql, paramQueryValue)
   db.query(sql, params)
     .then(queryResult => {
-      // if (!queryResult.rows[0]) {
-      //   throw new ClientError(404, `cannot find product with productId ${userId}`);
-      // }
+      if (!queryResult.rows[0]) {
+        throw new ClientError(404, `cannot find user with userId ${userId}`);
+      }
       res.json(queryResult.rows[0]);
     })
     .catch(err => next(err));
