@@ -197,19 +197,18 @@ app.put('/api/edit', (req, res, next) => {
 });
 
 app.post('/api/now-entry', (req, res, next) => {
-  const { userId } = req.user;
+  const { userId, entryContent } = req.user;
 
   if (!userId) {
     throw new ClientError(400, 'userId must be a positive integer');
   }
 
   const sql = `
-    insert into "nowww" ("content")
-    values ($1)
-    where "userId" = $2
+    insert into "nowww" ("userId" "content")
+    values ($1, $2)
   `;
 
-  const sqlParameters = [];
+  const sqlParameters = [userId, entryContent];
   db.query(sql, sqlParameters)
     .then(queryResult => {
       if (!queryResult.rows[0]) {

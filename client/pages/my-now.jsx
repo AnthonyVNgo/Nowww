@@ -11,8 +11,6 @@ export default class MyNow extends React.Component {
 
   componentDidMount() {
     if (!this.context.user) return;
-    // const token = window.localStorage.getItem('react-context-jwt');
-    // console.log(token)
     fetch('/api/my-now/', {
       method: 'GET',
       headers: {
@@ -21,7 +19,6 @@ export default class MyNow extends React.Component {
     })
       .then(res => res.json())
       .then(user => {
-        // console.log('res.json response, user:', user)
         this.setState({ user });
       });
   }
@@ -40,7 +37,6 @@ export default class MyNow extends React.Component {
         <div className="row jc-center flex card shadow-sm p-3">
           <div className="col-12 col-md-12 col-lg-12 row m-0 p-0">
             <div className="col-12 col-md-6">
-            {/* <div className="col-12 col-md-6 flex jc-center"> */}
               <div className=''>
                 <img src={profilePicture} className="card-img-top" />
               </div>

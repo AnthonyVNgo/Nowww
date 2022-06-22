@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoForm from '../components/todo-form';
+import NowwwEntryForm from '../components/now-entry-form';
 import Redirect from '../components/redirect';
 import AppContext from '../lib/app-context';
 
@@ -63,7 +63,7 @@ export default class UpdateMyNow extends React.Component {
       });
   }
 
-  addTodo(newNowEntry) {
+  addNowEntry(newNowEntry) {
     const init = {
       method: 'POST',
       headers: {
@@ -77,8 +77,8 @@ export default class UpdateMyNow extends React.Component {
     fetch('api/now-entry', init)
       .then(fetchResponse => fetchResponse.json())
       .then(data => {
-        const newArr = nowArr.concat(data);
-        this.setState({ nowEntry: newArr });
+        const nowArrPlusNewNowEntry = nowArr.concat(data);
+        this.setState({ nowEntry: nowArrPlusNewNowEntry });
       });
   }
 
@@ -95,7 +95,6 @@ export default class UpdateMyNow extends React.Component {
       <div className="container">
         <div className="row jc-center flex card shadow-sm p-3">
             <div className="col-12 col-md-12 col-lg-12 row m-0 p-0">
-              {/* <div className="col-12 col-md-6 flex jc-center"> */}
                 <div className="col-12 col-md-6">
                 <div className="dropdown">
                     <button className='img-btn width-100' type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -144,7 +143,8 @@ export default class UpdateMyNow extends React.Component {
                     <input type="textarea" placeholder={whyContent} name='whyContent' className='edit-input-large' onChange={handleChange}/>
                 </li>
               </ul>
-              <TodoForm />
+              {/* <NowwwForm onChange={this.handleChange} onSubmit={this.addNowEntry}/> */}
+              <NowwwEntryForm onSubmit={this.addNowEntry}/>
             </div>
           </div>
           <div className="row jc-center">
