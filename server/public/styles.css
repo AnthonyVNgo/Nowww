@@ -92,6 +92,11 @@ img {
   margin: 0;
 }
 
+/* .list-group-item {
+  padding-left: 0;
+  padding-right: 0;
+} */
+
 .list-group-item > p {
   margin: 0;
   padding: 0;
@@ -137,4 +142,16 @@ img {
 
 .dropdown-menu > li > input.edit-input {
   width: 100%;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.bi-save {
+  margin: 0;
 }

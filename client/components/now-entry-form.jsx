@@ -14,6 +14,7 @@ export default class NowwwEntryForm extends React.Component {
     this.setState({
       entry: event.target.value
     });
+    // console.log(`handleChange fired`)
   }
 
   handleSubmit(event) {
@@ -23,12 +24,13 @@ export default class NowwwEntryForm extends React.Component {
     };
     this.props.onSubmit(newNowEntry);
     this.setState({ entry: '' });
+    // console.log('now-entry-form.jsx handleSubmit fired')
   }
 
   render() {
     const value = this.state.entry;
     return (
-      <form className="input-group mb-4 shadow-sm" onSubmit={this.handleSubmit}>
+      <form className="input-group" onSubmit={this.handleSubmit}>
         <input
           required
           autoFocus
@@ -56,7 +58,7 @@ export default class NowwwEntryForm extends React.Component {
 // line 14. the value of event.target.value is whatever is entered into the input
 
 // line 19. onSubmit event handler handleSubmit, executes when user hits the submit button for the NowEntryForm component
-// line 21. a variable is defined and is assigned the value / stores the value of this.state.entry
+// line 21. a variable is defined and is assigned the value / stores an OBJECT with the property of entry, that stores the value of this.state.entry they are not the same.
 // line 24. the onSubmit event handler, handleSubmit calls the function returned from this.props.onSubmit
 // line 24. the function returned from this.props.onSubmit is the addNowEntry method passsed as the NowwwEntryForm's onSubmit property's value
 // line 24. the addNowEntry function takes the variable newNowEntry as an argument
