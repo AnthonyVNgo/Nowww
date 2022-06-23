@@ -20,7 +20,6 @@ export default class Gallery extends React.Component {
     return (
       <div className="container px-4">
         <div className="row gx-5">
-          <p></p>
           {
             this.state.users.map(user => (
               <div key={user.userId} className="col-12 col-md-6 col-lg-4">

@@ -1,5 +1,5 @@
 import React from 'react';
-import NowwwEntryList from '../components/nowww-entry-list';
+// import NowwwEntryList from '../components/nowww-entry-list';
 
 export default class UserDetails extends React.Component {
   constructor(props) {
@@ -14,7 +14,14 @@ export default class UserDetails extends React.Component {
       .then(res => res.json())
       .then(user => this.setState({ user }));
 
-    fetch(`api/users/now-entries/${this.props.userId}`)
+    const init = {
+      method: 'GET',
+      headers: {
+        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
+      }
+    };
+
+    fetch(`/api/users/now-entries/${this.props.userId}`, init)
       .then(fetchResponse => fetchResponse.json())
       .then(jsonResponse => {
         this.setState({ nowEntries: jsonResponse });
@@ -73,7 +80,7 @@ export default class UserDetails extends React.Component {
                 </li>
               </ul>
             </div>
-            <NowwwEntryList nowEntries={this.state.nowEntries} />
+            {/* <NowwwEntryList nowEntries={this.state.nowEntries} /> */}
           </div>
         </div>
       </div>
