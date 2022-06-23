@@ -1,5 +1,6 @@
 import React from 'react';
 import NowwwEntryForm from '../components/now-entry-form';
+import NowwwEntryList from '../components/nowww-entry-list';
 import Redirect from '../components/redirect';
 import AppContext from '../lib/app-context';
 
@@ -40,6 +41,17 @@ export default class UpdateMyNow extends React.Component {
           link: user.link,
           location: user.location
         });
+      });
+
+    fetch('api/my-now-entries', {
+      method: 'GET',
+      headers: {
+        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
+      }
+    })
+      .then(fetchResponse => fetchResponse.json())
+      .then(jsonResponse => {
+        this.setState({ nowEntries: jsonResponse });
       });
   }
 
@@ -106,7 +118,7 @@ export default class UpdateMyNow extends React.Component {
                 </div>
              </div>
             <div className="col-12 col-md-6">
-              <ul className="list-group list-group-flush">
+              <ul className="list-group bio">
                 <li className="list-group-item">
                   <h2 className="card-title">{username}</h2>
                 </li>
@@ -133,7 +145,7 @@ export default class UpdateMyNow extends React.Component {
               </ul>
             </div>
             <div className="col-12 col-md-12">
-              <ul className="list-group list-group-flush">
+              <ul className="list-group bio">
                 <li className="list-group-item">
                   <h3>What do you do?</h3>
                     <input type="textarea" placeholder={whatContent} name='whatContent' className='edit-input-large' onChange={handleChange}/>
@@ -152,6 +164,8 @@ export default class UpdateMyNow extends React.Component {
           </div>
         </form>
           <NowwwEntryForm onSubmit={this.addNowEntry} />
+          {/* <NowwwEntryList nowEntries={this.state.nowEntry} /> */}
+          <NowwwEntryList nowEntries={this.state.nowEntries} />
         </div>
       </div>
     );

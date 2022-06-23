@@ -1,6 +1,7 @@
 import React from 'react';
 import Redirect from '../components/redirect';
 import AppContext from '../lib/app-context';
+import NowwwEntryList from '../components/nowww-entry-list';
 
 export default class MyNow extends React.Component {
   constructor(props) {
@@ -21,6 +22,17 @@ export default class MyNow extends React.Component {
       .then(user => {
         this.setState({ user });
       });
+
+    fetch('api/my-now-entries', {
+      method: 'GET',
+      headers: {
+        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
+      }
+    })
+      .then(fetchResponse => fetchResponse.json())
+      .then(jsonResponse => {
+        this.setState({ nowEntries: jsonResponse });
+      });
   }
 
   render() {
@@ -32,7 +44,6 @@ export default class MyNow extends React.Component {
     } = this.state.user;
 
     return (
-      <form onSubmit={this.handleSubmit}>
       <div className="container">
         <div className="row jc-center flex card shadow-sm p-3">
           <div className="col-12 col-md-12 col-lg-12 row m-0 p-0">
@@ -43,7 +54,7 @@ export default class MyNow extends React.Component {
             </div>
 
             <div className="col-12 col-md-6">
-              <ul className="list-group list-group-flush">
+              <ul className="list-group bio">
                 <li className="list-group-item">
                   <h2 className="card-title">{username}</h2>
                 </li>
@@ -70,7 +81,7 @@ export default class MyNow extends React.Component {
               </ul>
             </div>
             <div className="col-12 col-md-12">
-              <ul className="list-group list-group-flush">
+              <ul className="list-group bio">
                 <li className="list-group-item">
                   <h3>What do you do?</h3>
                   <p>{whatContent}</p>
@@ -81,10 +92,10 @@ export default class MyNow extends React.Component {
                 </li>
               </ul>
             </div>
+            <NowwwEntryList nowEntries={this.state.nowEntries}/>
           </div>
         </div>
       </div>
-      </form>
     );
   }
 }

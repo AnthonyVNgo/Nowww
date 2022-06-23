@@ -72,6 +72,13 @@ app.get('/api/users/:userId', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.get('api.users/now-entries/:userId', (req, res, next) => {
+  const userId = Number(req.params.userId);
+  if (!userId) {
+    throw new ClientError(400, 'userId must be a positive integer');
+  }
+});
+
 app.post('/api/auth/sign-up', (req, res, next) => {
   const { username, password } = req.body;
   if (!username || !password) {
@@ -162,6 +169,29 @@ app.get('/api/my-now/', (req, res, next) => {
         throw new ClientError(404, `cannot find user with userId: ${userId}`);
       }
       res.json(queryResult.rows[0]);
+    })
+    .catch(err => next(err));
+});
+
+app.get('/api/my-now-entries/', (req, res, next) => {
+  const { userId } = req.user;
+  if (!userId) {
+    throw new ClientError(400, 'userId must be a positive integer');
+  }
+
+  const sql = `
+    select *
+      from "nowww"
+      where "userId" = $1
+  `;
+
+  const paramQueryValue = [userId];
+  db.query(sql, paramQueryValue)
+    .then(queryResult => {
+      if (!queryResult.rows[0]) {
+        throw new ClientError(404, `cannot find user with userId: ${userId}`);
+      }
+      res.json(queryResult.rows);
     })
     .catch(err => next(err));
 });
