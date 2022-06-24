@@ -51,7 +51,7 @@ export default class UpdateMyNow extends React.Component {
     })
       .then(fetchResponse => fetchResponse.json())
       .then(jsonResponse => {
-        this.setState({ nowEntries: jsonResponse });
+        this.setState({ nowEntry: jsonResponse });
       });
   }
 
@@ -164,8 +164,7 @@ export default class UpdateMyNow extends React.Component {
           </div>
         </form>
           <NowwwEntryForm onSubmit={this.addNowEntry} />
-          {/* <NowwwEntryList nowEntries={this.state.nowEntry} /> */}
-          <NowwwEntryList nowEntries={this.state.nowEntries} />
+          <NowwwEntryList nowEntries={this.state.nowEntry} />
         </div>
       </div>
     );

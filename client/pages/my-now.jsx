@@ -31,7 +31,7 @@ export default class MyNow extends React.Component {
     })
       .then(fetchResponse => fetchResponse.json())
       .then(jsonResponse => {
-        this.setState({ nowEntries: jsonResponse });
+        this.setState({ nowEntry: jsonResponse });
       });
   }
 
@@ -92,7 +92,7 @@ export default class MyNow extends React.Component {
                 </li>
               </ul>
             </div>
-            <NowwwEntryList nowEntries={this.state.nowEntries}/>
+            <NowwwEntryList nowEntries={this.state.nowEntry}/>
           </div>
         </div>
       </div>

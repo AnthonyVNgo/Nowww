@@ -72,32 +72,28 @@ app.get('/api/users/:userId', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// app.get('/api/users/now-entries/:userId', (req, res, next) => {
-// app.get('/api/test', (req, res, next) => {
-// const hi = 'hello from the node server + express!'
-// console.log('hihihihihi')
-// console.log(hi)
-// const userId = Number(req.params.userId);
-// if (!userId) {
-//   throw new ClientError(400, 'userId must be a positive integer');
-// }
+app.get('/api/users/now-entries/:userId', (req, res, next) => {
+  const userId = Number(req.params.userId);
+  if (!userId) {
+    throw new ClientError(400, 'userId must be a positive integer');
+  }
 
-// const sql = `
-//   select *
-//     from "nowww"
-//     where "userId" = $1
-// `;
+  const sql = `
+    select *
+      from "nowww"
+      where "userId" = $1
+  `;
 
-// const paramQueryValue = [userId];
-// db.query(sql, paramQueryValue)
-//   .then(queryResult => {
-//     if (!queryResult.rows) {
-//       throw new ClientError(404, `cannot find user with userId: ${userId}`);
-//     }
-//     res.json(queryResult.rows);
-//   })
-//   .catch(err => next(err));
-// });
+  const paramQueryValue = [userId];
+  db.query(sql, paramQueryValue)
+    .then(queryResult => {
+      if (!queryResult.rows) {
+        throw new ClientError(404, `cannot find user with userId: ${userId}`);
+      }
+      res.json(queryResult.rows);
+    })
+    .catch(err => next(err));
+});
 
 app.post('/api/auth/sign-up', (req, res, next) => {
   const { username, password } = req.body;

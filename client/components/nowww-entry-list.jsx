@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Todo(props) {
-  const { content } = props.todo;
+function NowEntryLI(props) {
+  const { content } = props.nowEntry;
   return (
     <li className="list-group-item">
         <p>{content}</p>
@@ -15,7 +15,7 @@ function NowwwEntryList(props) {
       {
         props.nowEntries.map((nowEntry, index) => {
           return (
-            <Todo key={index} todo={nowEntry} />
+            <NowEntryLI key={index} nowEntry={nowEntry} />
           );
         })
     }
