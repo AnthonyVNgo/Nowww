@@ -1,4 +1,5 @@
 import React from 'react';
+import NowwwEntryList from '../components/nowww-entry-list';
 
 export default class UserDetails extends React.Component {
   constructor(props) {
@@ -12,6 +13,12 @@ export default class UserDetails extends React.Component {
     fetch(`/api/users/${this.props.userId}`)
       .then(res => res.json())
       .then(user => this.setState({ user }));
+
+    fetch(`/api/users/now-entries/${this.props.userId}`)
+      .then(fetchResponse => fetchResponse.json())
+      .then(jsonResponse => {
+        this.setState({ nowEntry: jsonResponse });
+      });
   }
 
   render() {
@@ -28,7 +35,7 @@ export default class UserDetails extends React.Component {
               <img src={profilePicture} className="card-img-top"/>
             </div>
             <div className="col-12 col-md-6">
-              <ul className="list-group list-group-flush">
+              <ul className="list-group bio">
                 <li className="list-group-item">
                   <h2 className="card-title">{username}</h2>
                 </li>
@@ -55,7 +62,7 @@ export default class UserDetails extends React.Component {
               </ul>
             </div>
             <div className="col-12 col-md-12">
-              <ul className="list-group list-group-flush">
+              <ul className="list-group bio">
                 <li className="list-group-item">
                   <h3>What do you do?</h3>
                   <p>{whatContent}</p>
@@ -66,6 +73,7 @@ export default class UserDetails extends React.Component {
                 </li>
               </ul>
             </div>
+            <NowwwEntryList nowEntries={this.state.nowEntry} />
           </div>
         </div>
       </div>

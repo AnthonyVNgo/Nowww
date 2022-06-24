@@ -8,7 +8,7 @@ svg {
   padding: 1rem 0;
 }
 
-.list-group-item {
+.bio > li {
   border: none;
 }
 
@@ -147,6 +147,15 @@ img {
   right: 0;
 }
 
-.bi-save {
-  margin: 0;
+.now-ul {
+  padding: 1rem;
+  border: none !important;
+}
+
+.add-entry-btn {
+  margin-right: 0.1rem !important;
+}
+
+.entry-input-form {
+  padding-left: 1rem;
 }
