@@ -27,7 +27,8 @@ CREATE TABLE "nowww" (
 	"userId" int,
 	"category" TEXT,
 	"content" TEXT,
-	"categoryId" int
+	"categoryId" int,
+	"EntryId" serial NOT NULL
 ) WITH (
   OIDS=FALSE
 );
@@ -47,3 +48,7 @@ CREATE TABLE "categories" (
 
 ALTER TABLE "nowww" ADD CONSTRAINT "nowww_fk0" FOREIGN KEY ("userId") REFERENCES "users"("userId");
 ALTER TABLE "nowww" ADD CONSTRAINT "nowww_fk1" FOREIGN KEY ("categoryId") REFERENCES "categories"("categoryId");
+
+
+
+
