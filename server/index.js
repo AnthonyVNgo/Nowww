@@ -268,20 +268,22 @@ app.post('/api/now-entry', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// app.delete('/api/now-entry/:entryId', (req, res, next) => {
-// app.delete('/api/now-entry', (req, res, next) => {
-//   const { userId } = req.user;
-//   const content = TBD
-//   // const entryId = Number(req.params.entryId);
+app.delete('/api/now-entry/:entryId', (req, res, next) => {
+  const { userId } = req.user;
+  const entryId = Number(req.params.entryId);
 
-//   const sql = `
-//     delete from "nowww"
-//     where "content" = $1
-//     and "userId" = $2
-//   `
+  const sql = `
+    delete from "nowww"
+    where "EntryId" = $1
+    and "userId" = $2
+  `;
 
-//   const sqlParameters = [content, entryId]
-// })
+  const sqlParameters = [entryId, userId];
+  db.query(sql, sqlParameters)
+    .then(queryResult => {
+      // console.log('yuckfoo')
+    });
+});
 
 app.use(errorMiddleware);
 

@@ -95,6 +95,15 @@ export default class UpdateMyNow extends React.Component {
       });
   }
 
+  // deleteNowEntry(){
+  //   const init = {
+  //     method: 'DELETE',
+  //     headers: {
+
+  //     }
+  //   }
+  // }
+
   render() {
     if (!this.context.user) return <Redirect to="sign-in" />;
     if (!this.state.user) return null;
