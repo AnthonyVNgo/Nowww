@@ -5,7 +5,8 @@ export default class UserDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null
+      user: null,
+      nowEntry: []
     };
   }
 

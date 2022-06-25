@@ -18,7 +18,7 @@ function NowwwEntryList(props) {
             <NowEntryLI key={index} nowEntry={nowEntry} />
           );
         })
-    }
+      }
     </ul>
   );
 }
