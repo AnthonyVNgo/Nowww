@@ -281,7 +281,6 @@ app.delete('/api/now-entry/:entryId', (req, res, next) => {
   const sqlParameters = [entryId, userId];
   db.query(sql, sqlParameters)
     .then(queryResult => {
-      // console.log('yuckfoo')
     });
 });
 

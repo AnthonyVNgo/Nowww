@@ -93,7 +93,7 @@ export default class MyNow extends React.Component {
                 </li>
               </ul>
             </div>
-            <NowwwEntryList nowEntries={this.state.nowEntry}/>
+            <NowwwEntryList nowEntries={this.state.nowEntry} route={this.context.route}/>
           </div>
         </div>
       </div>

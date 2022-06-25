@@ -19,6 +19,7 @@ export default class UpdateMyNow extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.addNowEntry = this.addNowEntry.bind(this);
+    this.deleteNowEntry = this.deleteNowEntry.bind(this);
   }
 
   componentDidMount() {
@@ -95,14 +96,18 @@ export default class UpdateMyNow extends React.Component {
       });
   }
 
-  // deleteNowEntry(){
-  //   const init = {
-  //     method: 'DELETE',
-  //     headers: {
+  deleteNowEntry(EntryId) {
+    const init = {
+      method: 'DELETE',
+      headers: {
+        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
+      }
+    };
 
-  //     }
-  //   }
-  // }
+    fetch(`api/now-entry/${EntryId}`, init)
+      .then(res => {})
+      .then(finalResponse => {});
+  }
 
   render() {
     if (!this.context.user) return <Redirect to="sign-in" />;
@@ -174,7 +179,7 @@ export default class UpdateMyNow extends React.Component {
           </div>
         </form>
           <NowwwEntryForm onSubmit={this.addNowEntry} />
-          <NowwwEntryList nowEntries={this.state.nowEntry} />
+          <NowwwEntryList nowEntries={this.state.nowEntry} route={this.context.route} handleClick={this.deleteNowEntry}/>
         </div>
       </div>
     );
