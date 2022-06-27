@@ -205,6 +205,7 @@ app.get('/api/my-now-entries/', (req, res, next) => {
   db.query(sql, paramQueryValue)
     .then(queryResult => {
       if (!queryResult.rows[0]) {
+        // console.log(`can't find now entries`)
         throw new ClientError(404, `cannot find now entries for userId: ${userId}`);
       }
       res.json(queryResult.rows);

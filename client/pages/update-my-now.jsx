@@ -53,7 +53,6 @@ export default class UpdateMyNow extends React.Component {
       .then(fetchResponse => fetchResponse.json())
       .then(jsonResponse => {
         this.setState({ nowEntry: jsonResponse });
-        // console.log(jsonResponse)
       });
   }
 
