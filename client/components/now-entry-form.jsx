@@ -28,7 +28,7 @@ export default class NowwwEntryForm extends React.Component {
   render() {
     const value = this.state.entry;
     return (
-      <form className="input-group entry-input-form" onSubmit={this.handleSubmit}>
+      <form className="input-group entry-input-form now-entry-form" onSubmit={this.handleSubmit}>
         <input
           required
           autoFocus

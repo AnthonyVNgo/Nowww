@@ -36,7 +36,7 @@ export default class UserDetails extends React.Component {
               <img src={profilePicture} className="card-img-top"/>
             </div>
             <div className="col-12 col-md-6">
-              <ul className="list-group bio">
+              <ul className="list-group bio user-details">
                 <li className="list-group-item">
                   <h2 className="card-title">{username}</h2>
                 </li>
@@ -63,7 +63,7 @@ export default class UserDetails extends React.Component {
               </ul>
             </div>
             <div className="col-12 col-md-12">
-              <ul className="list-group bio">
+              <ul className="list-group bio user-details">
                 <li className="list-group-item">
                   <h3>What do you do?</h3>
                   <p>{whatContent}</p>
@@ -74,7 +74,7 @@ export default class UserDetails extends React.Component {
                 </li>
               </ul>
             </div>
-            <NowwwEntryList nowEntries={this.state.nowEntry} />
+            <NowwwEntryList nowEntries={this.state.nowEntry} route={this.context.route} />
           </div>
         </div>
       </div>
