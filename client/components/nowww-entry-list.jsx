@@ -2,11 +2,9 @@ import React from 'react';
 
 function NowwwEntryList(props) {
   if (!props.nowEntries.length === true) {
-    // console.log(`props.nowEntries.length returns: 0`)
     return null;
   }
   if (!props.nowEntries.length === false) {
-    // console.log(`props.nowEntries.length returns: A number greater than 0`)
     return (
       <ul className="list-group now-ul">
         {

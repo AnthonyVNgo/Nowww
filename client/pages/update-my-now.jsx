@@ -109,9 +109,7 @@ export default class UpdateMyNow extends React.Component {
   }
 
   render() {
-    // console.log(this.context.route)
     if (!this.context.user) return <Redirect to="sign-in" />;
-    if (!this.state.user) return null;
     if (!this.state.user) return <Redirect to="sign-in" />;
     const { handleChange } = this;
     const {
@@ -179,7 +177,6 @@ export default class UpdateMyNow extends React.Component {
           </div>
         </form>
           <NowwwEntryForm onSubmit={this.addNowEntry} />
-          {/* <NowwwEntryList nowEntries={this.state.nowEntry} route={this.context.route} handleClick={this.deleteNowEntry}/> */}
           <NowwwEntryList nowEntries={this.state.nowEntry} route={this.context.route} handleClick={this.deleteNowEntry}/>
         </div>
       </div>
