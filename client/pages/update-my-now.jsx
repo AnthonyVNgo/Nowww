@@ -1,6 +1,5 @@
 import React from 'react';
 import NowwwEntryForm from '../components/now-entry-form';
-// import NowwwEntryList from '../components/nowww-entry-list';
 import NowEntryLI from '../components/nowww-entry-list';
 import AppContext from '../lib/app-context';
 
