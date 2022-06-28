@@ -1,22 +1,50 @@
 import React from 'react';
 
-function NowwwEntryList(props) {
-  if (!props.nowEntries.length === true) {
-    return null;
+// function NowwwEntryList(props) {
+//   if (!props.nowEntries.length === true) {
+//     return null;
+//   }
+//   if (!props.nowEntries.length === false) {
+//     console.log(`props.route:`,props.route)
+//     return (
+//       <ul className="list-group now-ul">
+//         {
+//           props.nowEntries.map((nowEntry, index) => {
+//             return (
+//               <NowEntryLI key={index} nowEntry={nowEntry} route={props.route} handleClick={props.handleClick}/>
+//             );
+//           })
+//         }
+//       </ul>
+//     );
+//   }
+// }
+
+class NowwwEntryList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      nowEntry: []
+    };
   }
-  if (!props.nowEntries.length === false) {
-    return (
-      <ul className="list-group now-ul">
-        {
-          props.nowEntries.map((nowEntry, index) => {
-            return (
-              // <NowEntryLI key={index} nowEntry={nowEntry} route={this.content.route}/>
-              <NowEntryLI key={index} nowEntry={nowEntry} route={props.route} handleClick={props.handleClick}/>
-            );
-          })
-        }
-      </ul>
-    );
+
+  render() {
+    if (!this.props.nowEntries.length === true) {
+      return null;
+    }
+    if (!this.props.nowEntries.length === false) {
+      return (
+        <ul className="list-group now-ul">
+          {
+            this.props.nowEntries.map((nowEntry, index) => {
+              return (
+                <NowEntryLI key={index} nowEntry={nowEntry} route={this.props.route} handleClick={this.props.handleClick} />
+              );
+            })
+          }
+        </ul>
+      );
+    }
   }
 }
 

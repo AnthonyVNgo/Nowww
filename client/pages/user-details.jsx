@@ -1,5 +1,6 @@
 import React from 'react';
 import NowwwEntryList from '../components/nowww-entry-list';
+import AppContext from '../lib/app-context';
 
 export default class UserDetails extends React.Component {
   constructor(props) {
@@ -74,10 +75,12 @@ export default class UserDetails extends React.Component {
                 </li>
               </ul>
             </div>
-            <NowwwEntryList nowEntries={this.state.nowEntry} route={this.context.route} />
+            <NowwwEntryList nowEntries={this.state.nowEntry} route={this.context.route} path={this.props.path}/>
           </div>
         </div>
       </div>
     );
   }
 }
+
+UserDetails.contextType = AppContext;

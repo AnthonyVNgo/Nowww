@@ -1,7 +1,6 @@
 import React from 'react';
 import NowwwEntryForm from '../components/now-entry-form';
 import NowwwEntryList from '../components/nowww-entry-list';
-import Redirect from '../components/redirect';
 import AppContext from '../lib/app-context';
 
 export default class UpdateMyNow extends React.Component {
@@ -109,8 +108,7 @@ export default class UpdateMyNow extends React.Component {
   }
 
   render() {
-    if (!this.context.user) return <Redirect to="sign-in" />;
-    if (!this.state.user) return <Redirect to="sign-in" />;
+    if (!this.state.user) return null;
     const { handleChange } = this;
     const {
       username, profilePicture, tagline, whatContent, whyContent, link, location
@@ -177,6 +175,7 @@ export default class UpdateMyNow extends React.Component {
           </div>
         </form>
           <NowwwEntryForm onSubmit={this.addNowEntry} />
+          {/* <NowwwEntryList nowEntries={this.state.nowEntry} route={this.context.route} handleClick={this.deleteNowEntry}/> */}
           <NowwwEntryList nowEntries={this.state.nowEntry} route={this.context.route} handleClick={this.deleteNowEntry}/>
         </div>
       </div>
