@@ -104,7 +104,19 @@ export default class UpdateMyNow extends React.Component {
 
     fetch(`api/now-entry/${EntryId}`, init)
       .then(res => {})
-      .then(finalResponse => {});
+      .then(finalResponse => {
+      });
+
+    fetch('api/my-now-entries', {
+      method: 'GET',
+      headers: {
+        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
+      }
+    })
+      .then(fetchResponse => fetchResponse.json())
+      .then(jsonResponse => {
+        this.setState({ nowEntry: jsonResponse });
+      });
   }
 
   render() {
