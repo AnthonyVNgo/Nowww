@@ -1,7 +1,7 @@
 import React from 'react';
 import Redirect from '../components/redirect';
 import AppContext from '../lib/app-context';
-import NowwwEntryList from '../components/nowww-entry-list';
+// import NowwwEntryList from '../components/nowww-entry-list';
 
 export default class MyNow extends React.Component {
   constructor(props) {
@@ -93,7 +93,7 @@ export default class MyNow extends React.Component {
                 </li>
               </ul>
             </div>
-            <NowwwEntryList nowEntries={this.state.nowEntry} route={this.context.route}/>
+            {/* <NowwwEntryList nowEntries={this.state.nowEntry} route={this.context.route}/> */}
           </div>
         </div>
       </div>

@@ -20,35 +20,35 @@ import React from 'react';
 //   }
 // }
 
-class NowwwEntryList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      nowEntry: []
-    };
-  }
+// class NowwwEntryList extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       nowEntry: []
+//     };
+//   }
 
-  render() {
-    if (!this.props.nowEntries.length === true) {
-      return null;
-    }
-    if (!this.props.nowEntries.length === false) {
-      return (
-        <ul className="list-group now-ul">
-          {
-            this.props.nowEntries.map((nowEntry, index) => {
-              return (
-                <NowEntryLI key={index} nowEntry={nowEntry} route={this.props.route} handleClick={this.props.handleClick} />
-              );
-            })
-          }
-        </ul>
-      );
-    }
-  }
-}
+//   render() {
+//     if (!this.props.nowEntries.length === true) {
+//       return null;
+//     }
+//     if (!this.props.nowEntries.length === false) {
+//       return (
+//         <ul className="list-group now-ul">
+//           {
+//             this.props.nowEntries.map((nowEntry, index) => {
+//               return (
+//                 <NowEntryLI key={index} nowEntry={nowEntry} route={this.props.route} handleClick={this.props.handleClick} />
+//               );
+//             })
+//           }
+//         </ul>
+//       );
+//     }
+//   }
+// }
 
-function NowEntryLI(props) {
+export default function NowEntryLI(props) {
   const entryId = props.nowEntry.EntryId;
   const { content } = props.nowEntry;
   let display;
@@ -77,4 +77,4 @@ function NowEntryLI(props) {
   );
 }
 
-export default NowwwEntryList;
+// export default NowwwEntryList;
