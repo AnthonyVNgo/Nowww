@@ -1,7 +1,7 @@
 import React from 'react';
 import Redirect from '../components/redirect';
 import AppContext from '../lib/app-context';
-// import NowwwEntryList from '../components/nowww-entry-list';
+import NowEntryLI from '../components/nowww-entry-list';
 
 export default class MyNow extends React.Component {
   constructor(props) {
@@ -43,6 +43,25 @@ export default class MyNow extends React.Component {
     const {
       username, profilePicture, tagline, whatContent, whyContent, link, location
     } = this.state.user;
+
+    let element;
+    if (this.state.nowEntry === undefined) {
+      element = null;
+    }
+
+    if (this.state.nowEntry !== undefined) {
+      element = (
+        <ul className="list-group now-ul">
+          {
+            this.state.nowEntry.map((nowEntry, index) => {
+              return (
+                <NowEntryLI key={index} nowEntry={nowEntry} route={this.context.route} handleClick={this.deleteNowEntry} />
+              );
+            })
+          }
+        </ul>
+      );
+    }
 
     return (
       <div className="container">
@@ -93,7 +112,7 @@ export default class MyNow extends React.Component {
                 </li>
               </ul>
             </div>
-            {/* <NowwwEntryList nowEntries={this.state.nowEntry} route={this.context.route}/> */}
+            {element}
           </div>
         </div>
       </div>
