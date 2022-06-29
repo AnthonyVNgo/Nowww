@@ -204,9 +204,6 @@ app.get('/api/my-now-entries/', (req, res, next) => {
   const paramQueryValue = [userId];
   db.query(sql, paramQueryValue)
     .then(queryResult => {
-      if (!queryResult.rows[0]) {
-        throw new ClientError(404, `cannot find user with userId: ${userId}`);
-      }
       res.json(queryResult.rows);
     })
     .catch(err => next(err));
@@ -266,6 +263,23 @@ app.post('/api/now-entry', (req, res, next) => {
       res.json(queryResult.rows[0]);
     })
     .catch(err => next(err));
+});
+
+app.delete('/api/now-entry/:entryId', (req, res, next) => {
+  const { userId } = req.user;
+  const entryId = Number(req.params.entryId);
+
+  const sql = `
+    delete from "nowww"
+    where "EntryId" = $1
+    and "userId" = $2
+  `;
+
+  const sqlParameters = [entryId, userId];
+  db.query(sql, sqlParameters)
+    .then(queryResult => {
+      res.json(queryResult.rows);
+    });
 });
 
 app.use(errorMiddleware);

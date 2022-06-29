@@ -58,7 +58,7 @@ export default class App extends React.Component {
     }
     if (path === 'users') {
       const userId = route.params.get('userId');
-      return <UserDetails userId={userId} />;
+      return <UserDetails userId={userId} path={path}/>;
     }
     if (path === 'my-now') {
       return <MyNow user={userId}/>;

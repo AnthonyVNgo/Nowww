@@ -1,11 +1,13 @@
 import React from 'react';
-import NowwwEntryList from '../components/nowww-entry-list';
+import AppContext from '../lib/app-context';
+import NowEntryLI from '../components/nowww-entry-list';
 
 export default class UserDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null
+      user: null,
+      nowEntry: []
     };
   }
 
@@ -26,6 +28,26 @@ export default class UserDetails extends React.Component {
     const {
       username, profilePicture, tagline, whatContent, whyContent, link, location
     } = this.state.user;
+
+    let element;
+    if (this.state.nowEntry === undefined) {
+      element = null;
+    }
+
+    if (this.state.nowEntry !== undefined) {
+      element = (
+        <ul className="list-group now-ul">
+          {
+            this.state.nowEntry.map((nowEntry, index) => {
+              return (
+                <NowEntryLI key={index} nowEntry={nowEntry} route={this.context.route} handleClick={this.deleteNowEntry} />
+              );
+            })
+          }
+        </ul>
+      );
+    }
+
     return (
 
       <div className="container">
@@ -35,7 +57,7 @@ export default class UserDetails extends React.Component {
               <img src={profilePicture} className="card-img-top"/>
             </div>
             <div className="col-12 col-md-6">
-              <ul className="list-group bio">
+              <ul className="list-group bio user-details">
                 <li className="list-group-item">
                   <h2 className="card-title">{username}</h2>
                 </li>
@@ -62,7 +84,7 @@ export default class UserDetails extends React.Component {
               </ul>
             </div>
             <div className="col-12 col-md-12">
-              <ul className="list-group bio">
+              <ul className="list-group bio user-details">
                 <li className="list-group-item">
                   <h3>What do you do?</h3>
                   <p>{whatContent}</p>
@@ -73,10 +95,12 @@ export default class UserDetails extends React.Component {
                 </li>
               </ul>
             </div>
-            <NowwwEntryList nowEntries={this.state.nowEntry} />
+            {element}
           </div>
         </div>
       </div>
     );
   }
 }
+
+UserDetails.contextType = AppContext;
