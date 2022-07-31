@@ -8,7 +8,7 @@ const styles = {
 
 export default function PageContainer({ children }) {
   return (
-    <div className="bg-light pt-5 pb-5">
+    <div className="bg-light pt-3 pb-4">
       <div className="container" style={styles.page}>
         {children}
       </div>

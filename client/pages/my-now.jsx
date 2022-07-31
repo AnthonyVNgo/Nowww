@@ -64,7 +64,7 @@ export default class MyNow extends React.Component {
     }
 
     return (
-      <div className="container">
+    // <div className="container">
         <div className="row jc-center flex card shadow-sm p-3">
           <div className="col-12 col-md-12 col-lg-12 row m-0 p-0">
             <div className="col-12 col-md-6">
@@ -74,9 +74,9 @@ export default class MyNow extends React.Component {
             </div>
 
             <div className="col-12 col-md-6">
-              <ul className="list-group bio user-details">
+              <ul className="list-group bio">
                 <li className="list-group-item">
-                  <h2 className="card-title">{username}</h2>
+                  <h2>{username}</h2>
                 </li>
                 <li className="list-group-item">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-link-45deg" viewBox="0 0 16 16">
@@ -100,8 +100,8 @@ export default class MyNow extends React.Component {
                 </li>
               </ul>
             </div>
-            <div className="col-12 col-md-12">
-              <ul className="list-group bio user-details">
+            <div className="col-12 col-md-12 my-3">
+              <ul className="list-group content">
                 <li className="list-group-item">
                   <h3>What do you do?</h3>
                   <p>{whatContent}</p>
@@ -112,10 +112,12 @@ export default class MyNow extends React.Component {
                 </li>
               </ul>
             </div>
-            {element}
+            <div className="col-12 col-md-12">
+              {element}
+            </div>
           </div>
         </div>
-      </div>
+    // </div>
     );
   }
 }
