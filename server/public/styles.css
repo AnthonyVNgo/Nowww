@@ -1,5 +1,6 @@
 h2,
-h3 {
+h3,
+h5 {
   margin: 0;
 }
 
@@ -26,6 +27,13 @@ img {
   object-fit: contain;
   background-color: #f3f3f3;
 }
+
+/* Nowww gallery cards */
+.card > .list-group {
+  border: none;
+}
+
+/* Nowww gallery cards */
 
 /* now user display styles */
 .content > li,
