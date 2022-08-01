@@ -209,21 +209,23 @@ export default class UpdateMyNow extends React.Component {
 
                   </ul>
                 </div>
-
               </div>
-              {/* <div className="position-absolute top-0 right-0"> */}
-              {/* </div> */}
             </form>
+
+            {/* now-entry-form's input  */}
             <div>
               <NowwwEntryForm onSubmit={this.addNowEntry} />
             {element}
             </div>
+            {/* now-entry-form's input  */}
+
+            {/* now-details-form's save button */}
             <div className='jc-center flex mt-5 mb-5'>
-              {/* <button type="submit" form='now-details-form' className="btn btn-primary sign-up-btn w-fit-content py-3 px-5"> */}
               <button type="submit" form='now-details-form' className="btn btn-primary sign-up-btn w-fit-content">
                 Save Changes
               </button>
             </div>
+            {/* now-details-form's save button */}
           </div>
     );
   }
