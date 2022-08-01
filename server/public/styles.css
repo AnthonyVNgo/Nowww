@@ -24,12 +24,11 @@ li {
 
 img {
   height: 300px;
-  object-fit: contain;
-  background-color: #f3f3f3;
+  object-fit: cover;
 }
 
 .container {
-  overflow: hidden;
+  overflow-x: hidden;
   height: 100%;
 }
 
@@ -270,7 +269,6 @@ a.card:hover {
 }
 
 .entry-input-form {
-  /* padding-left: 1rem; */
   padding: 0;
 }
 
