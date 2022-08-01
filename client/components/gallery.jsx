@@ -18,24 +18,20 @@ export default class Gallery extends React.Component {
 
   render() {
     return (
-    // <div className="container px-4">
         <div className="row gx-5 pt-2">
           {
             this.state.users.map(user => (
-              // <div key={user.userId} className="col-12 col-md-6 col-lg-4">
               <div key={user.userId} className="col-12 col-md-6 col-lg-4 col-xl-3">
                 <Card user={user}/>
               </div>
             ))
           }
         </div>
-    // </div>
     );
   }
 }
 
 function Card(props) {
-  // const { userId, username, link, location, profilePicture, tagline } = props.user;
   const { userId, username, location, profilePicture, tagline } = props.user;
   return (
   <a
