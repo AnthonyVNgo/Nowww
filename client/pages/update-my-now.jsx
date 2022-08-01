@@ -148,7 +148,7 @@ export default class UpdateMyNow extends React.Component {
 
     return (
           <div className="row jc-center flex card shadow-sm p-3">
-            <form className='bio-form' onSubmit={this.handleSubmit}>
+            <form id='now-details-form' className='bio-form' onSubmit={this.handleSubmit}>
               <div className="col-12 col-md-12 col-lg-12 row m-0 p-0 position-relative">
                 <div className="col-12 col-md-6">
                   <div className="dropdown">
@@ -211,15 +211,18 @@ export default class UpdateMyNow extends React.Component {
                 </div>
 
               </div>
-              <div className="position-absolute top-0 right-0">
-                <button type="submit" className="btn btn-primary sign-up-btn w-fit-content mt-3 me-3">
-                  Save
-                </button>
-              </div>
+              {/* <div className="position-absolute top-0 right-0"> */}
+              {/* </div> */}
             </form>
             <div>
               <NowwwEntryForm onSubmit={this.addNowEntry} />
             {element}
+            </div>
+            <div className='jc-center flex mt-5 mb-5'>
+              {/* <button type="submit" form='now-details-form' className="btn btn-primary sign-up-btn w-fit-content py-3 px-5"> */}
+              <button type="submit" form='now-details-form' className="btn btn-primary sign-up-btn w-fit-content">
+                Save Changes
+              </button>
             </div>
           </div>
     );

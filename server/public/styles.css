@@ -1,3 +1,7 @@
+p {
+  margin: 0;
+}
+
 h2,
 h3,
 h5 {
@@ -25,6 +29,7 @@ li {
 img {
   height: 300px;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .container {
@@ -50,9 +55,10 @@ img {
 }
 
 /* Nowww entry form  */
-.now-entry-form {
+
+/* .now-entry-form {
   margin: 1rem 0;
-}
+} */
 
 /* Nowww entry list items  */
 .delete-btn > svg {
@@ -75,6 +81,10 @@ img {
 
 .delete-btn:hover {
   background-color: #0d6efd;
+}
+
+.now-ul {
+  margin-top: 1rem;
 }
 
 .now-ul > li:first-of-type > span > .delete-btn {
@@ -191,6 +201,7 @@ a.card:hover {
 .img-btn {
   border: none;
   padding: 0;
+  border-radius: 5px;
 }
 
 .logo {
@@ -295,6 +306,7 @@ a.card:hover {
 
 .entry-input-form {
   padding: 0;
+  margin-top: 1rem;
 }
 
 .display-none {
