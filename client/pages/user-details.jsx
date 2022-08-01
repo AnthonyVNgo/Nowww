@@ -49,7 +49,6 @@ export default class UserDetails extends React.Component {
     }
 
     return (
-
       <div className="container">
         <div className="row jc-center flex card shadow-sm p-3">
           <div className="col-12 col-md-12 col-lg-12 row ">

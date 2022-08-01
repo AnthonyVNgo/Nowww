@@ -33,6 +33,14 @@ img {
   border: none;
 }
 
+a.card {
+  transition: all 0.2s ease-in-out;
+}
+
+a.card:hover {
+  transform: scale(1.025);
+}
+
 .card-img {
   object-fit: cover;
   border-radius: 5px;
@@ -77,7 +85,48 @@ img {
   border: none;
 }
 
-/* now user display styles */
+/* Nowww user display styles */
+
+/* Update my Nowww page start */
+
+/* Bio form  */
+.bio-form {
+  padding: 0;
+}
+
+/* Nowww entry form  */
+.now-entry-form {
+  margin: 1rem 0;
+}
+
+/* Nowww entry list items  */
+.delete-btn > svg {
+  margin: 0;
+  margin-left: -1px;
+  margin-top: -1px;
+  padding: 0;
+  margin-bottom: 2px;
+  color: white;
+}
+
+.delete-btn {
+  border: 0;
+  border-radius: 1px 0 1px 5px;
+  width: 30px;
+  height: 30px;
+  background-color: #1d1f23;
+  transition-duration: 0.5s;
+}
+
+.delete-btn:hover {
+  background-color: #0d6efd;
+}
+
+.now-ul > li:first-of-type > span > .delete-btn {
+  border-radius: 1px 5px;
+}
+
+/* Update my Nowww page end  */
 
 .flex {
   display: flex;
@@ -216,29 +265,8 @@ img {
 }
 
 .entry-input-form {
-  padding-left: 1rem;
-}
-
-.delete-btn > svg {
-  margin: 0;
-  margin-left: -1px;
-  margin-top: -1px;
+  /* padding-left: 1rem; */
   padding: 0;
-  margin-bottom: 2px;
-  color: white;
-}
-
-.delete-btn {
-  border: 0;
-  border-radius: 1px 0 1px 5px;
-  width: 30px;
-  height: 30px;
-  background-color: #1d1f23;
-  transition-duration: 0.5s;
-}
-
-.delete-btn:hover {
-  background-color: #0d6efd;
 }
 
 .display-none {
