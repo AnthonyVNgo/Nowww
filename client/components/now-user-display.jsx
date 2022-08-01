@@ -5,8 +5,10 @@ export default function nowUserDisplay(props) {
     <div className="row jc-center flex card shadow-sm p-3">
       <div className="col-12 col-md-12 col-lg-12 row m-0 p-0">
         <div className="col-12 col-md-6">
-          <div>
-            <img src={props.profilePicture} className="card-img-top" />
+          <div className='profile-picture-container position-relative'>
+            {/* <img src={props.profilePicture} className="card-img-top" /> */}
+            <img src={props.profilePicture} className="card-img-top img-top" />
+            <img src={props.profilePicture} className="card-img-top img-blur" />
           </div>
         </div>
 
@@ -63,6 +65,19 @@ export default function nowUserDisplay(props) {
           {props.element}
         </div>
       </div>
+
+      {/* <div className='profile-picture-container'>
+        <img src={props.profilePicture} className="card-img-top img-top position-absolute" />
+        <img src={props.profilePicture} className="card-img-top img-blur position-absolute" />
+      </div> */}
+
+      {/* <div className="position-relative">
+<img className='img-top position-absolute' src={props.profilePicture} alt="" />
+          <img className='img-blur position-absolute' src={props.profilePicture} alt="" />
+      </div> */}
+      {/* <div><img src={props.profilePicture} alt="" />
+        <div><img className='img-blur' src={props.profilePicture} alt="" /></div>
+      </div> */}
     </div>
   );
 }
