@@ -3,7 +3,9 @@ import AppContext from '../lib/app-context';
 
 export default class Navbar extends React.Component {
   render() {
+    // const { user, handleSignOut, handleOffCanvasClick, offCanvasClass } = this.context;
     const { user, handleSignOut } = this.context;
+    // const offCanvasClass = this.state.clicks ? 'true' : 'false';
     return (
       <nav className="navbar navbar-dark bg-dark sticky-top">
         <div className="container">
@@ -19,6 +21,7 @@ export default class Navbar extends React.Component {
             </button>
 
             <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            {/* <div className={offCanvasClass} tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel"> */}
               <div className="offcanvas-header">
                 <h5 className="offcanvas-title" id="offcanvasRightLabel">Nowww</h5>
                 <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -30,6 +33,9 @@ export default class Navbar extends React.Component {
                     <li><a href="#edit">Edit Nowww</a></li>
                     <li><a href="#">Nowww Pages</a></li>
                     <li><a href="#" onClick={handleSignOut}>Sign-out</a></li>
+                    {/* <li><a href="#" onClick={handleSignOut}>Sign-out</a></li> */}
+                    {/* <li onClick={handleOffCanvasClick} data-bs-dismiss="offcanvas">{offCanvasClass}</li> */}
+                    {/* <li data-bs-dismiss="offcanvas">{offCanvasClass}</li> */}
                   </ul>
                 }
                 {user === null &&

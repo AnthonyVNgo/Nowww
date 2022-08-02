@@ -148,12 +148,15 @@ export default class UpdateMyNow extends React.Component {
 
     return (
           <div className="row jc-center flex card shadow-sm p-3">
-            <form id='now-details-form' className='bio-form' onSubmit={this.handleSubmit}>
+            <form id='now-details-form' className='p-0' onSubmit={this.handleSubmit}>
               <div className="col-12 col-md-12 col-lg-12 row m-0 p-0 position-relative">
                 <div className="col-12 col-md-6">
                   <div className="dropdown">
                     <button className='img-btn width-100' type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src={profilePicture} className="card-img-top" />
+                      <div className='profile-picture-container position-relative'>
+                        <img src={profilePicture} className="card-img-top img-top"/>
+                        <img src={profilePicture} className="card-img-top img-blur"/>
+                      </div>
                     </button>
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                       <li><input type="url" name='profilePicture' className='edit-input' onChange={handleChange} placeholder={profilePicture} /></li>
