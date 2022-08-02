@@ -66,24 +66,9 @@ img {
   border: none;
 }
 
-/* .card-img-top {
-  background-color: transparent;
-} */
-
 /* Nowww user display styles */
 
 /* Update my Nowww page start */
-
-/* Bio form  */
-.bio-form {
-  padding: 0;
-}
-
-/* Nowww entry form  */
-
-/* .now-entry-form {
-  margin: 1rem 0;
-} */
 
 /* Nowww entry list items  */
 .delete-btn > svg {
@@ -198,6 +183,10 @@ a.card:hover {
 
 .flex {
   display: flex;
+}
+
+.flex-start {
+  justify-content: start;
 }
 
 .jc-center {
