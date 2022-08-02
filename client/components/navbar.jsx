@@ -3,51 +3,43 @@ import AppContext from '../lib/app-context';
 
 export default class Navbar extends React.Component {
   render() {
-    // const { user, handleSignOut, handleOffCanvasClick, offCanvasClass } = this.context;
     const { user, handleSignOut } = this.context;
-    // const offCanvasClass = this.state.clicks ? 'true' : 'false';
     return (
       <nav className="navbar navbar-dark bg-dark sticky-top">
-        <div className="container">
-          <a className="navbar-brand" href="#">
-            Nowww
-          </a>
-          <div>
-
-            <button className="btn btn-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
-                <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-              </svg>
-            </button>
-
-            <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-            {/* <div className={offCanvasClass} tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel"> */}
-              <div className="offcanvas-header">
-                <h5 className="offcanvas-title" id="offcanvasRightLabel">Nowww</h5>
-                <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <div className="container overflow-visible">
+            <a className="navbar-brand" href="#">
+              Nowww
+            </a>
+            {user !== null &&
+              <div className='dropstart right-0 top-auto'>
+                <button className="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
+                    <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                  </svg>
+                </button>
+                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a className="dropdown-item" href="#my-now">My Nowww</a></li>
+                  <li><a className="dropdown-item" href="#edit">Edit Nowww</a></li>
+                  <li><a className="dropdown-item" href="#">Nowww Pages</a></li>
+                  <li><a className="dropdown-item" href="#" onClick={handleSignOut}>Sign-out</a></li>
+                </ul>
               </div>
-              <div className="offcanvas-body">
-                {user !== null &&
-                  <ul className='off-canvas-items'>
-                    <li><a href="#my-now">My Nowww</a></li>
-                    <li><a href="#edit">Edit Nowww</a></li>
-                    <li><a href="#">Nowww Pages</a></li>
-                    <li><a href="#" onClick={handleSignOut}>Sign-out</a></li>
-                    {/* <li><a href="#" onClick={handleSignOut}>Sign-out</a></li> */}
-                    {/* <li onClick={handleOffCanvasClick} data-bs-dismiss="offcanvas">{offCanvasClass}</li> */}
-                    {/* <li data-bs-dismiss="offcanvas">{offCanvasClass}</li> */}
-                  </ul>
-                }
-                {user === null &&
-                  <ul className='off-canvas-items'>
-                    <li><a href="#">Nowww Pages</a></li>
-                    <li><a href="#sign-up">Sign-up</a></li>
-                    <li><a href="#sign-in">Login</a></li>
-                  </ul>
-                }
+            }
+
+            {user === null &&
+              <div className='dropstart'>
+                <button className="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
+                    <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                  </svg>
+                </button>
+                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a className="dropdown-item" href="#">Nowww Pages</a></li>
+                  <li><a className="dropdown-item" href="#sign-up">Sign-up</a></li>
+                  <li><a className="dropdown-item" href="#sign-in">Login</a></li>
+                </ul>
               </div>
-            </div>
-          </div>
+            }
         </div>
       </nav>
     );

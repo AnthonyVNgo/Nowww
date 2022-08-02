@@ -32,6 +32,11 @@ img {
   border-radius: 5px;
 }
 
+.dropdown-menu {
+  top: auto !important;
+  right: 0 !important;
+}
+
 .container {
   overflow-x: hidden;
   height: 100%;
@@ -107,31 +112,6 @@ img {
 
 /* Update my Nowww page end  */
 
-/* Nav bar start */
-.offcanvas-body {
-  padding: 1rem 0;
-}
-
-.off-canvas-items {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.off-canvas-items > li {
-  padding: 1.25rem;
-  transition-duration: 0.5s;
-}
-
-.off-canvas-items > li:hover {
-  background-color: lightgray;
-}
-
-.off-canvas-items > li > a {
-  text-decoration: none;
-  color: black;
-}
-
 /* Nowww gallery cards */
 .card > .list-group {
   border: none;
@@ -193,8 +173,16 @@ a.card:hover {
   justify-content: center;
 }
 
+.jc-space-between {
+  justify-content: space-between;
+}
+
 .ai-center {
   align-items: center;
+}
+
+.overflow-visible {
+  overflow: visible;
 }
 
 .vh100 {
@@ -244,6 +232,10 @@ a.card:hover {
   position: relative;
 }
 
+.position-static {
+  position: static;
+}
+
 .bottom-0 {
   bottom: 0%;
 }
@@ -257,17 +249,6 @@ a.card:hover {
   margin: 0;
   width: 80%;
 }
-
-/* .list-group-item > p {
-  margin: 0;
-  padding: 0;
-} */
-
-/* .list-group-item > span {
-  margin: 0;
-  padding: 0;
-  font-size: 0.875rem;
-} */
 
 .edit-input:hover {
   border: 1px solid #005fcc;
@@ -297,17 +278,22 @@ a.card:hover {
   width: 100%;
 }
 
-.dropdown-menu {
-  width: 100%;
-  padding: 0.75rem;
-}
-
 .dropdown-menu > li > input.edit-input {
   width: 100%;
 }
 
+/* .dropdown-menu > li {
+  width: 100%;
+
+  UPDATE MY NOW DROPDOWN INPUT LI FOR PROFILE PICTURE WIP!!!!
+} */
+
 .top-0 {
   top: 0;
+}
+
+.top-auto {
+  top: auto;
 }
 
 .right-0 {
