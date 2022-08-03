@@ -2,19 +2,17 @@ import React from 'react';
 
 export default function nowUserDisplay(props) {
   return (
-    <div className="row jc-center flex card shadow-sm">
-      <div className="col-12 row m-0 p-0 pb-5">
-        <div className="col-12 p-0">
-          <div className='profile-picture-container position-relative flex jc-center ai-center'>
-            <img src={props.profilePicture} className="card-img-top img-blur" />
-            <div className="profile-img-overlay"></div>
-            <div className='width-100 img-top-container'>
-              <div className='flex jc-center'>
-                <img src={props.profilePicture} className="img-top" />
-              </div>
-              <div className='pt-2'>
-                <h2 className='profile-username'>{props.username}</h2>
-              </div>
+    <div className="row card">
+      <div className="col-12 row m-0 p-0">
+        <div className='profile-picture-container position-relative flex jc-center ai-center'>
+          <img src={props.profilePicture} className="card-img-top img-blur" />
+          <div className="profile-img-overlay"></div>
+            <div className='img-top-container'>
+            <div className='flex jc-center'>
+              <img src={props.profilePicture} className="img-top" />
+            </div>
+            <div className='pt-2'>
+              <h2 className='profile-username'>{props.username}</h2>
             </div>
           </div>
         </div>
@@ -54,7 +52,7 @@ export default function nowUserDisplay(props) {
         </div>
 
 {/* now entries  */}
-        <div className="col-12 px-5">
+        <div className="col-12 pb-5 px-5">
           {props.element}
         </div>
       </div>
