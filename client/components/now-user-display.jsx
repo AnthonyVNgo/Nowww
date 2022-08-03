@@ -2,16 +2,16 @@ import React from 'react';
 
 export default function nowUserDisplay(props) {
   return (
-    <div className="row jc-center flex card shadow-sm p-3">
-      <div className="col-12 col-md-12 col-lg-12 row m-0 p-0">
-        <div className="col-12 col-md-6">
-          <div className='profile-picture-container position-relative'>
-            <img src={props.profilePicture} className="card-img-top img-top" />
+    <div className="row jc-center flex card shadow-sm">
+      <div className="col-12 row m-0 p-0 pb-4">
+        <div className="col-12 p-0">
+          <div className='profile-picture-container position-relative flex jc-center ai-center'>
+                <img src={props.profilePicture} className="card-img-top img-top" />
             <img src={props.profilePicture} className="card-img-top img-blur" />
           </div>
         </div>
 
-        <div className="col-12 col-md-6">
+        <div className="col-12 bio-top">
           <ul className="list-group bio">
 
             <li className="list-group-item">
