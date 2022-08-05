@@ -4,7 +4,8 @@ export default function nowUserDisplay(props) {
   return (
     <div className="row card">
       <div className="col-12 row m-0 p-0">
-        <div className='profile-picture-container position-relative flex jc-center ai-center'>
+{/* profile picture section  */}
+        <div className='profile-picture-container position-relative flex jc-center ai-center mb-3'>
           <img src={props.profilePicture} className="card-img-top img-blur" />
           <div className="profile-img-overlay"></div>
             <div className='img-top-container'>
@@ -16,7 +17,7 @@ export default function nowUserDisplay(props) {
             </div>
           </div>
         </div>
-
+{/* link section  */}
         <div className="col-xl-4 col-12 flex py-4 px-5">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-link-45deg" viewBox="0 0 16 16">
             <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
@@ -24,7 +25,7 @@ export default function nowUserDisplay(props) {
           </svg>
           <span><a href={props.link} className="card-link">{props.link}</a></span>
         </div>
-
+{/* tagline section  */}
         <div className="col-xl-4 col-12 flex py-4 px-5">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-info-circle" viewBox="0 0 16 16">
             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -32,15 +33,15 @@ export default function nowUserDisplay(props) {
           </svg>
           <span>{props.tagline}</span>
         </div>
-
+{/* location section  */}
         <div className="col-xl-4 col-12 flex py-4 px-5">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-geo-alt-fill" viewBox="0 0 16 16">
             <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
           </svg>
           <span>{props.location}</span>
         </div>
-
-        <hr />
+{/* horizontal line */}
+        <hr className='mt-3'/>
 {/* what & why content  */}
         <div className="col-12 py-4 px-5">
           <h3>What do you do?</h3>
@@ -50,7 +51,6 @@ export default function nowUserDisplay(props) {
           <h3>Why?</h3>
           <p>{props.whyContent}</p>
         </div>
-
 {/* now entries  */}
         <div className="col-12 pb-5 px-5">
           {props.element}

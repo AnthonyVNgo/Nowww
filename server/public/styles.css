@@ -117,8 +117,7 @@ img {
 }
 
 /* nav bar  */
-
-.dropdown-menu {
+.nav-ul {
   top: auto !important;
   right: 0 !important;
 }
@@ -282,16 +281,6 @@ a.card:hover {
   margin: 0;
 }
 
-.sign-up-btn {
-  width: 100%;
-}
-
-.img-btn {
-  border: none;
-  padding: 0;
-  border-radius: 5px;
-}
-
 .logo {
   text-align: center;
   font-size: 4rem;
@@ -300,7 +289,7 @@ a.card:hover {
 .edit-input {
   border: none;
   margin: 0;
-  width: 80%;
+  width: 100%;
 }
 
 .edit-input:hover {
@@ -327,15 +316,15 @@ a.card:hover {
   margin-top: -5px;
 }
 
+/* drop-menu styles  */
 .dropdown-menu > li > input.edit-input {
   width: 100%;
 }
 
-/* .dropdown-menu > li {
-  width: 100%;
-
-  UPDATE MY NOW DROPDOWN INPUT LI FOR PROFILE PICTURE WIP!!!!
-} */
+.img-btn {
+  border: none;
+  background-color: transparent;
+}
 
 .add-entry-btn {
   margin-right: 0.1rem !important;

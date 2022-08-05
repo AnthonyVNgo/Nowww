@@ -17,12 +17,10 @@ export default class App extends React.Component {
     this.state = {
       user: null,
       isAuthorizing: true,
-      // clicks: false,
       route: parseRoute(window.location.hash)
     };
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
-    // this.handleOffCanvasClick = this.handleOffCanvasClick.bind(this);
   }
 
   componentDidMount() {
@@ -46,11 +44,6 @@ export default class App extends React.Component {
     window.localStorage.removeItem('react-context-jwt');
     this.setState({ user: null });
   }
-
-  // handleOffCanvasClick() {
-  // this.setState({clicks: !this.state.clicks})
-  // document.querySelector('.modal-backdrop fade show').className = 'modal-backdrop fade'
-  // }
 
   renderPage() {
     const { path } = this.state.route;
@@ -78,11 +71,8 @@ export default class App extends React.Component {
 
   render() {
     if (this.state.isAuthorizing) return null;
-    // const offCanvasClass = this.state.clicks ? 'offcanvas offcanvas-end show' : 'offcanvas offcanvas-end';
     const { user, route } = this.state;
-    // const { handleSignIn, handleSignOut, handleOffCanvasClick} = this;
     const { handleSignIn, handleSignOut } = this;
-    // const contextValue = { user, route, handleSignIn, handleSignOut, handleOffCanvasClick, offCanvasClass };
     const contextValue = { user, route, handleSignIn, handleSignOut };
     return (
       <AppContext.Provider value={contextValue}>
