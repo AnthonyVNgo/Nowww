@@ -1,22 +1,28 @@
 import React from 'react';
+import Loading from './loading';
 
 export default class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: []
+      users: [],
+      isLoading: false
     };
   }
 
   componentDidMount() {
+    this.setState({ isLoading: true });
     fetch('/api/users')
       .then(res => res.json())
       .then(users => {
         this.setState({ users });
+        this.setState({ isLoading: false });
       });
   }
 
   render() {
+    if (this.state.isLoading === true) return <Loading />;
+
     return (
         <div className="row gx-5 pt-2">
           {

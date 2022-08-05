@@ -19,36 +19,10 @@ export default class App extends React.Component {
       user: null,
       userDetails: null,
       nowEntry: [],
-      route: parseRoute(window.location.hash),
-      isLoading: null
+      route: parseRoute(window.location.hash)
     };
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
-    this.getMyNow = this.getMyNow.bind(this);
-  }
-
-  getMyNow() {
-    fetch('/api/my-now/', {
-      method: 'GET',
-      headers: {
-        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
-      }
-    })
-      .then(res => res.json())
-      .then(userDetails => {
-        this.setState({ userDetails });
-      });
-
-    fetch('api/my-now-entries', {
-      method: 'GET',
-      headers: {
-        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
-      }
-    })
-      .then(fetchResponse => fetchResponse.json())
-      .then(jsonResponse => {
-        this.setState({ nowEntry: jsonResponse });
-      });
   }
 
   componentDidMount() {
@@ -60,7 +34,6 @@ export default class App extends React.Component {
     const token = window.localStorage.getItem('react-context-jwt');
     const user = token ? jwtDecode(token) : null;
     this.setState({ user, isAuthorizing: false });
-    this.getMyNow();
   }
 
   handleSignIn(result) {
@@ -100,9 +73,10 @@ export default class App extends React.Component {
 
   render() {
     if (this.state.isAuthorizing) return null;
+
     const { user, userDetails, route, nowEntry } = this.state;
-    const { handleSignIn, handleSignOut, getMyNow } = this;
-    const contextValue = { user, userDetails, route, nowEntry, handleSignIn, handleSignOut, getMyNow };
+    const { handleSignIn, handleSignOut } = this;
+    const contextValue = { user, userDetails, route, nowEntry, handleSignIn, handleSignOut };
     return (
       <AppContext.Provider value={contextValue}>
         <>

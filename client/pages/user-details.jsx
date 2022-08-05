@@ -2,6 +2,7 @@ import React from 'react';
 import AppContext from '../lib/app-context';
 import NowEntryLI from '../components/nowww-entry-list';
 import NowUserDisplay from '../components/now-user-display';
+import Loading from '../components/loading';
 
 export default class UserDetails extends React.Component {
   constructor(props) {
@@ -53,6 +54,8 @@ export default class UserDetails extends React.Component {
         </ul>
       );
     }
+
+    if (this.state.isLoading === true) return <Loading />;
 
     return (
       <NowUserDisplay

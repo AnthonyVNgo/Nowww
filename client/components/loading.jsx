@@ -1,15 +1,9 @@
-// import React from "react";
+import React from 'react';
 
-// export default function Loading() {
-//   return(
-//     <div>
-//       100vh
-//       100vw
-//       jc-center
-//       align-items center
-//       loading gif
-//       LOGO above loading gif
-//       css styling
-//     </div>
-//   )
-// }
+export default function Loading() {
+  return (
+    <div className="loading-component">
+      <div className="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+  );
+}
