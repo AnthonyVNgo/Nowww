@@ -5,56 +5,24 @@ import NowEntryLI from '../components/nowww-entry-list';
 import NowUserDisplay from '../components/now-user-display';
 
 export default class MyNow extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      nowEntry: []
-    };
-  }
-
-  componentDidMount() {
-    if (!this.context.user) return;
-    fetch('/api/my-now/', {
-      method: 'GET',
-      headers: {
-        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
-      }
-    })
-      .then(res => res.json())
-      .then(user => {
-        this.setState({ user });
-      });
-
-    fetch('api/my-now-entries', {
-      method: 'GET',
-      headers: {
-        'X-Access-Token': window.localStorage.getItem('react-context-jwt')
-      }
-    })
-      .then(fetchResponse => fetchResponse.json())
-      .then(jsonResponse => {
-        this.setState({ nowEntry: jsonResponse });
-      });
-  }
-
   render() {
     if (!this.context.user) return <Redirect to="sign-in" />;
-    if (!this.state.user) return null;
+    if (!this.context.user) return null;
 
     const {
       username, profilePicture, tagline, whatContent, whyContent, link, location
-    } = this.state.user;
+    } = this.context.userDetails;
 
     let element;
-    if (this.state.nowEntry === undefined) {
+    if (this.context.nowEntry === undefined) {
       element = null;
     }
 
-    if (this.state.nowEntry !== undefined) {
+    if (this.context.nowEntry !== undefined) {
       element = (
         <ul className="list-group now-ul">
           {
-            this.state.nowEntry.map((nowEntry, index) => {
+            this.context.nowEntry.map((nowEntry, index) => {
               return (
                 <NowEntryLI key={index} nowEntry={nowEntry} route={this.context.route} handleClick={this.deleteNowEntry} />
               );

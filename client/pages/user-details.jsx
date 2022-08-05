@@ -8,19 +8,24 @@ export default class UserDetails extends React.Component {
     super(props);
     this.state = {
       user: null,
-      nowEntry: []
+      nowEntry: [],
+      isLoading: false
     };
   }
 
   componentDidMount() {
+    this.setState({ isLoading: true });
     fetch(`/api/users/${this.props.userId}`)
       .then(res => res.json())
-      .then(user => this.setState({ user }));
+      .then(user => {
+        this.setState({ user });
+      });
 
     fetch(`/api/users/now-entries/${this.props.userId}`)
       .then(fetchResponse => fetchResponse.json())
       .then(jsonResponse => {
         this.setState({ nowEntry: jsonResponse });
+        this.setState({ isLoading: false });
       });
   }
 

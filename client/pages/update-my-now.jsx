@@ -23,7 +23,6 @@ export default class UpdateMyNow extends React.Component {
 
   componentDidMount() {
     if (!this.context.user) return;
-
     fetch('/api/my-now/', {
       method: 'GET',
       headers: {
