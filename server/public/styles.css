@@ -7,7 +7,6 @@ hr {
 }
 
 h3 {
-  /* padding: 0.5rem 0; */
   padding: 0;
 }
 
@@ -31,26 +30,6 @@ img {
   border-radius: 5px;
 }
 
-.flex {
-  display: flex;
-}
-
-.flex-start {
-  justify-content: start;
-}
-
-.jc-center {
-  justify-content: center;
-}
-
-.jc-space-between {
-  justify-content: space-between;
-}
-
-.ai-center {
-  align-items: center;
-}
-
 .overflow-hidden {
   overflow: hidden;
   overflow-x: hidden;
@@ -60,60 +39,16 @@ img {
   overflow: visible;
 }
 
-.vh100 {
-  height: 100vh;
-}
-
-.vh75 {
+/* .vh75 {
   height: 75vh;
-}
-
-.width-100 {
-  width: 100%;
-}
-
-.width-30 {
-  width: 30%;
-}
+} */
 
 .w-fit-content {
   width: fit-content;
 }
 
-.text-deco-none {
-  text-decoration: none;
-}
-
-.text-align-center {
-  text-align: center;
-}
-
-.position-absolute {
-  position: absolute;
-}
-
-.position-relative {
-  position: relative;
-}
-
-.position-static {
-  position: static;
-}
-
-.top-0 {
-  top: 0;
-}
-
 .top-auto {
   top: auto;
-}
-
-.right-0 {
-  right: 0;
-}
-
-.bottom-0 {
-  bottom: 0;
 }
 
 /* nav bar  */
@@ -175,18 +110,12 @@ img {
   border-radius: 25px;
 }
 
-/* Nowww gallery cards */
-
 /* now user display styles */
 .content > li,
 .bio > li {
   border: none;
   background-color: transparent;
 }
-
-/* Nowww user display styles */
-
-/* Update my Nowww page start */
 
 /* Nowww entry list items  */
 .delete-btn > svg {
@@ -223,9 +152,7 @@ img {
   padding: 35px;
 }
 
-/* Update my Nowww page end  */
-
-/* Nowww gallery cards */
+/* Gallery Cards  */
 .card > .list-group {
   border: none;
 }
@@ -335,9 +262,9 @@ a.card:hover {
   margin-top: 1rem;
 }
 
-.display-none {
+/* .display-none {
   display: none;
-}
+} */
 
 .now-entry-form > input {
   padding-left: 35px;

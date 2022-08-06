@@ -58,13 +58,14 @@ export default function NowEntryLI(props) {
   }
 
   if (props.route.path !== 'edit') {
-    display = 'display-none';
+    // display = 'display-none';
+    display = 'd-none';
   }
 
   return (
     <li className="list-group-item">
       <span>{content}</span>
-      <span className='position-absolute top-0 right-0'>
+      <span className='position-absolute top-0 end-0'>
         <button
         className={display}
         onClick={() => props.handleClick(entryId)}>

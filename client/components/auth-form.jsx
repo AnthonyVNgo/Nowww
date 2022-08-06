@@ -88,12 +88,12 @@ export default class AuthForm extends React.Component {
             onChange={handleChange}
             className="form-control bg-light" />
         </div>
-          <button type="submit" className="btn btn-primary sign-up-btn">
+          <button type="submit" className="btn btn-primary sign-up-btn w-100">
             {submitButtonText}
           </button>
-        <div className='row jc-center'>
-          <p className='text-align-center my-2'>{altAction}</p>
-          <a className="text-deco-none text-align-center" href={alternateActionHref}>
+        <div className='row justify-content-center'>
+          <p className='text-center my-2'>{altAction}</p>
+          <a className="text-decoration-none text-center" href={alternateActionHref}>
               {alternatActionText}
             </a>
           </div>
