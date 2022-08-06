@@ -1,53 +1,5 @@
 import React from 'react';
 
-// function NowwwEntryList(props) {
-//   if (!props.nowEntries.length === true) {
-//     return null;
-//   }
-//   if (!props.nowEntries.length === false) {
-//     console.log(`props.route:`,props.route)
-//     return (
-//       <ul className="list-group now-ul">
-//         {
-//           props.nowEntries.map((nowEntry, index) => {
-//             return (
-//               <NowEntryLI key={index} nowEntry={nowEntry} route={props.route} handleClick={props.handleClick}/>
-//             );
-//           })
-//         }
-//       </ul>
-//     );
-//   }
-// }
-
-// class NowwwEntryList extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       nowEntry: []
-//     };
-//   }
-
-//   render() {
-//     if (!this.props.nowEntries.length === true) {
-//       return null;
-//     }
-//     if (!this.props.nowEntries.length === false) {
-//       return (
-//         <ul className="list-group now-ul">
-//           {
-//             this.props.nowEntries.map((nowEntry, index) => {
-//               return (
-//                 <NowEntryLI key={index} nowEntry={nowEntry} route={this.props.route} handleClick={this.props.handleClick} />
-//               );
-//             })
-//           }
-//         </ul>
-//       );
-//     }
-//   }
-// }
-
 export default function NowEntryLI(props) {
   const entryId = props.nowEntry.EntryId;
   const { content } = props.nowEntry;
@@ -58,7 +10,6 @@ export default function NowEntryLI(props) {
   }
 
   if (props.route.path !== 'edit') {
-    // display = 'display-none';
     display = 'd-none';
   }
 
@@ -77,5 +28,3 @@ export default function NowEntryLI(props) {
     </li>
   );
 }
-
-// export default NowwwEntryList;
