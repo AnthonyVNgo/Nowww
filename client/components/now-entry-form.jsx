@@ -55,20 +55,3 @@ function PlusSquareSVG(props) {
     </svg>
   );
 }
-
-// now-entry-form.jsx
-// line 13. onChange event handler handleChange, executes evertime a change is made in the input
-// line 14. this.state.entry is updated to the value of event.target.value
-// line 14. the value of event.target.value is whatever is entered into the input
-
-// line 19. onSubmit event handler handleSubmit, executes when user hits the submit button for the NowEntryForm component
-// line 21. a variable is defined and is assigned the value / stores an OBJECT with the property of entry, that stores the value of this.state.entry they are not the same.
-// line 24. the onSubmit event handler, handleSubmit calls the function returned from this.props.onSubmit
-// line 24. the function returned from this.props.onSubmit is the addNowEntry method passsed as the NowwwEntryForm's onSubmit property's value
-// line 24. the addNowEntry function takes the variable newNowEntry as an argument
-
-// update-my-now.jsx
-// line 66. addNowEntry(newNowEntry) has 1 parameter and takes the NewNowEntry variable from now-entry-from.jsx as an argument
-// line 72. the fetch POST request req.body is set as the returned value from JSON.stringify(newNowEntry) - the JSON version of the newNowEntry value
-// line 75. nowArr is assigned the value of this.state.nowEntry, an array meant to store an array/list of now-entries
-// line 80. after the client's fetch POST request, the server, Node + Express, responds with.. to be continued
