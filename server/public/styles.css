@@ -30,11 +30,7 @@ img {
   border-radius: 5px;
 }
 
-.overflow-hidden {
-  overflow: hidden;
-  overflow-x: hidden;
-}
-
+/* Utilities  */
 .overflow-visible {
   overflow: visible;
 }
@@ -47,17 +43,26 @@ img {
   top: auto;
 }
 
-/* nav bar  */
-.nav-ul {
-  top: auto !important;
-  right: 0 !important;
-}
-
+/* Multi-use */
 .container {
   overflow-x: hidden;
   height: 100%;
 }
 
+/* Navbar  */
+.nav-ul {
+  top: auto !important;
+  right: 0 !important;
+}
+
+.bi-list {
+  color: white;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: 0;
+}
+
+/* User Details & My Now  */
 .profile-picture-container {
   height: 300px;
 }
@@ -98,61 +103,7 @@ img {
   height: 100%;
 }
 
-.bio-top {
-  margin-top: -1rem;
-  padding-top: 1rem;
-  background-color: white;
-  z-index: 2;
-  border-radius: 25px;
-}
-
-/* now user display styles */
-.content > li,
-.bio > li {
-  border: none;
-  background-color: transparent;
-}
-
-/* Nowww entry list items  */
-.delete-btn > svg {
-  margin: 0;
-  margin-left: -1px;
-  margin-top: -1px;
-  padding: 0;
-  margin-bottom: 2px;
-  color: white;
-}
-
-.delete-btn {
-  border: 0;
-  border-radius: 1px 0 1px 5px;
-  width: 30px;
-  height: 30px;
-  background-color: #1d1f23;
-  transition-duration: 0.5s;
-}
-
-.delete-btn:hover {
-  background-color: #0d6efd;
-}
-
-.now-ul {
-  margin-top: 1rem;
-}
-
-.now-ul > li:first-of-type > span > .delete-btn {
-  border-radius: 1px 5px;
-}
-
-.now-ul > li {
-  padding: 35px;
-}
-
-/* Gallery Cards  */
-.card > .list-group {
-  border: none;
-}
-
+/* Home Page Gallery Cards  */
 a.card {
   transition: all 0.2s ease-in-out;
 }
@@ -197,16 +148,14 @@ a.card:hover {
   white-space: nowrap;
 }
 
-.bi-list {
-  color: white;
-  height: 1.5rem;
-  width: 1.5rem;
-  margin: 0;
+/* Update My Nowww */
+::placeholder {
+  color: black;
 }
 
-.logo {
-  text-align: center;
-  font-size: 4rem;
+.img-btn {
+  border: none;
+  background-color: transparent;
 }
 
 .edit-input {
@@ -231,22 +180,47 @@ a.card:hover {
   border-radius: 5px;
 }
 
-::placeholder {
-  color: black;
+/* Nowww Entry List Items  */
+.delete-btn > svg {
+  margin: 0;
+  margin-left: -1px;
+  margin-top: -1px;
+  padding: 0;
+  margin-bottom: 2px;
+  color: white;
+}
+
+.delete-btn {
+  border: 0;
+  border-radius: 1px 0 1px 5px;
+  width: 30px;
+  height: 30px;
+  background-color: #1d1f23;
+  transition-duration: 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #0d6efd;
+}
+
+.now-ul {
+  margin-top: 1rem;
+}
+
+.now-ul > li:first-of-type > span > .delete-btn {
+  border-radius: 1px 5px;
+}
+
+.now-ul > li {
+  padding: 35px;
 }
 
 .bi-plus-square {
   margin-top: -5px;
 }
 
-/* drop-menu styles  */
 .dropdown-menu > li > input.edit-input {
   width: 100%;
-}
-
-.img-btn {
-  border: none;
-  background-color: transparent;
 }
 
 .add-entry-btn {
@@ -258,15 +232,11 @@ a.card:hover {
   margin-top: 1rem;
 }
 
-/* .display-none {
-  display: none;
-} */
-
 .now-entry-form > input {
   padding-left: 35px;
 }
 
-/* loading spinner  */
+/* Loading Spinner */
 .lds-default {
   display: inline-block;
   position: relative;
