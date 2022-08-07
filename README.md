@@ -28,9 +28,16 @@ This project was inspired by the concept of a "Now Page" and combines the user p
 - User can view Nowww gallery
 - User can view other Nowww user profiles
 
+## Future Stretch Features
+- User can see a timestamp for each Nowww entry
+- User can send messages to other users
+
 ## Try it Out
 Try the application [Here](nowww-app.herokuapp.com/#sign-in)
 ## Demo
 ![Mobile Demo](images/mobile-demo.gif)
 ![Desktop Demo](images/desktop-demo1.gif)
 ![Desktop Demo](images/desktop-demo2.gif)
+
+## System Requirements
+- Node.js
