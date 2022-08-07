@@ -173,14 +173,14 @@ export default class UpdateMyNow extends React.Component {
                 </div>
 {/* tagline section  */}
             <div className="col-xl-4 col-12 d-flex py-4 px-5">
-                  <LocationSVG />
-                  <input type="text" placeholder={location} name='location' className='edit-input' onChange={handleChange} maxLength="150" />
-                </div>
+              <InfoSVG />
+              <input type="text" placeholder={tagline} name='tagline' className='edit-input' onChange={handleChange} maxLength="150" />
+            </div>
 {/* location section  */}
             <div className="col-xl-4 col-12 d-flex py-4 px-5">
-                  <InfoSVG />
-                  <input type="text" placeholder={tagline} name='tagline' className='edit-input' onChange={handleChange} maxLength="150" />
-                </div>
+              <LocationSVG />
+              <input type="text" placeholder={location} name='location' className='edit-input' onChange={handleChange} maxLength="150" />
+            </div>
 {/* horizontal line */}
                 <hr className='mt-3'/>
 {/* what & why content  */}
