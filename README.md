@@ -61,7 +61,7 @@ Try the application [Here](nowww-app.herokuapp.com/#sign-in)
 1. Import the example database to PostgreSQL.
 
     ```shell
-???
+    npm run db:import
     ```
 
 1. Start the project. Once started you can view the application by opening http://localhost:3000 in your browser.
