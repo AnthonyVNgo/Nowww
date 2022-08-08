@@ -40,4 +40,6 @@ Try the application [Here](nowww-app.herokuapp.com/#sign-in)
 ![Desktop Demo](images/desktop-demo2.gif)
 
 ## System Requirements
-- Node.js
+- Node.js 10 or higher
+- NPM 6 or higher
+- PostgreSQL
