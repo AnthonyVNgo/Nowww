@@ -40,6 +40,32 @@ Try the application [Here](nowww-app.herokuapp.com/#sign-in)
 ![Desktop Demo](images/desktop-demo2.gif)
 
 ## System Requirements
-- Node.js 10 or higher
-- NPM 6 or higher
-- PostgreSQL
+- Node.js 18 or higher
+- NPM 8 or higher
+- PostgreSQL 14 or higher
+
+## GEtting Started
+1. Clone the repository.
+
+    ```shell
+    git clone https://github.com/AnthonyVNgo/final-project.git
+    cd sgt-react
+    ```
+
+1. Install all dependencies with NPM.
+
+    ```shell
+    npm install
+    ```
+
+1. Import the example database to PostgreSQL.
+
+    ```shell
+???
+    ```
+
+1. Start the project. Once started you can view the application by opening http://localhost:3000 in your browser.
+
+    ```shell
+    npm run dev
+    ```
