@@ -29,6 +29,7 @@ This project was inspired by the concept of a "Now Page" and combines the user p
 - User can view other Nowww user profiles
 
 ## Future Stretch Features
+- User can select a Nowww entry category
 - User can see a timestamp for each Nowww entry
 - User can send messages to other users
 
