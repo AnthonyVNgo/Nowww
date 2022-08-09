@@ -49,7 +49,6 @@ Try the application [Here](nowww-app.herokuapp.com/#sign-in)
 
     ```shell
     git clone https://github.com/AnthonyVNgo/final-project.git
-    cd sgt-react
     ```
 
 1. Install all dependencies with NPM.
