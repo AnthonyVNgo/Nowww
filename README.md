@@ -1,4 +1,4 @@
-# Final Project - Nowww App - README
+# Nowww App - README
 A full stack JavaScript application for professionals who want to share a brief written description of their current projects (Nowwws)
 
 ## Inspiration
@@ -45,11 +45,11 @@ Try the application [Here](nowww-app.herokuapp.com/#sign-in)
 - NPM 8 or higher
 - PostgreSQL 14 or higher
 
-## GEtting Started
+## Getting Started
 1. Clone the repository.
 
     ```shell
-    git clone https://github.com/AnthonyVNgo/final-project.git
+    git clone https://github.com/AnthonyVNgo/Nowww.git
     ```
 
 1. Install all dependencies with NPM.
