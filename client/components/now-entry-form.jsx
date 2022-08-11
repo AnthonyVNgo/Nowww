@@ -29,7 +29,6 @@ export default class NowwwEntryForm extends React.Component {
     const value = this.state.entry;
     return (
       <form className="input-group entry-input-form now-entry-form" onSubmit={this.handleSubmit}>
-        {/* <CategoryDropDown /> */}
         <input
           required
           autoFocus
@@ -57,20 +56,3 @@ function PlusSquareSVG(props) {
     </svg>
   );
 }
-
-// function CategoryDropDown(props) {
-//   return (
-//     <select className='custom-select' form='now-entry-form' required>
-//       <option disabled selected>Categories</option>
-//       <option value="family">Family</option>
-//       <option value="financial">Financial</option>
-//       <option value="hobbies">Hobbies</option>
-//       <option value="learning">Learning</option>
-//       <option value="professional">Professional</option>
-//       <option value="reading">Reading</option>
-//       <option value="wanted">Wanted</option>
-//       <option value="wisdom">Wisdom</option>
-//       <option value="misc">Misc</option>
-//     </select>
-//   )
-// }
