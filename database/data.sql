@@ -14,9 +14,18 @@ values
   ('hobbies'),
   ('learning'),
   ('professional'),
-  ('playing'),
   ('reading'),
   ('wanted'),
   ('watching'),
   ('wisdom'),
-  ('misc')
+  ('misc');
+
+insert into "nowww" ("userId", "category", "content", "categoryId", "entryId")
+values
+  ('1', '', 'Building e-commerce websites for pets!', '1', '2'),
+  ('1', '', 'Learning CSS to style my projects', '1', '3'),
+  ('2', '', 'Learning Indonesian', '1', '4'),
+  ('2', '', 'Planning my next vacation destination', '1', '5'),
+  ('3', '', 'Fundraising to help developing countries', '1', '6'),
+  ('3', '', 'Searching for volunteers!', '1', '7'),
+  ('4', '', 'Editing photos from EDCLV!!!!', '1', '8');
