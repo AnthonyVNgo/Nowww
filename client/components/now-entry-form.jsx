@@ -29,11 +29,13 @@ export default class NowwwEntryForm extends React.Component {
     const value = this.state.entry;
     return (
       <form className="input-group entry-input-form now-entry-form" onSubmit={this.handleSubmit}>
+        {/* <CategoryDropDown /> */}
         <input
           required
           autoFocus
           type="text"
           value={value}
+          id='now-entry-form'
           className="form-control"
           placeholder="Add Nowww"
           onChange={this.handleChange} />

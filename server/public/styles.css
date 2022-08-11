@@ -232,8 +232,11 @@ a.card:hover {
   margin-top: 1rem;
 }
 
-.now-entry-form > input {
-  padding-left: 35px;
+.custom-select {
+  width: 10%;
+  border-radius: 0.375rem;
+  padding-left: 0.5rem;
+  border: 1px solid #ced4da;
 }
 
 /* Loading Spinner */
