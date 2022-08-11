@@ -34,6 +34,7 @@ export default class NowwwEntryForm extends React.Component {
           autoFocus
           type="text"
           value={value}
+          id='now-entry-form'
           className="form-control"
           placeholder="Add Nowww"
           onChange={this.handleChange} />
