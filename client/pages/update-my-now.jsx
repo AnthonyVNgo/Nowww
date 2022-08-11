@@ -155,12 +155,16 @@ export default class UpdateMyNow extends React.Component {
                   <img src={profilePicture} className="card-img-top img-blur" />
                   <div className="profile-img-overlay"></div>
                   <div className='img-top-container'>
-                    <button className='img-btn' type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src={profilePicture} className="img-top" />
-                    </button>
-                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                      <li><input type="url" name='profilePicture' className='edit-input' onChange={handleChange} placeholder={profilePicture} /></li>
-                    </ul>
+                    <div className='w-100'>
+                      <div className='d-flex justify-content-center position-relative'>\
+                        <button className='img-btn' type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          <img src={profilePicture} className="img-top" />
+                        </button>
+                        <ul className="dropdown-menu start-0 end-0 img-dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li className='img-li'><input type="url" name='profilePicture' className='edit-input' onChange={handleChange} placeholder="Enter URL here" /></li>
+                        </ul>
+                      </div>
+                    </div>
                     <div className='pt-2'>
                       <h2 className='profile-username'>{username}</h2>
                     </div>
@@ -169,7 +173,7 @@ export default class UpdateMyNow extends React.Component {
 {/* link section  */}
             <div className="col-xl-4 col-12 d-flex py-4 px-5">
                   <LinkSVG />
-                  <input type="text" placeholder={link} name='link' className='edit-input' onChange={handleChange} maxLength="150" />
+                  <input type="text" placeholder={link} name='link' className='edit-input' onChange={handleChange} maxLength="150"/>
                 </div>
 {/* tagline section  */}
             <div className="col-xl-4 col-12 d-flex py-4 px-5">

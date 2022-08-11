@@ -21,7 +21,7 @@ export default function nowUserDisplay(props) {
 {/* link section  */}
         <div className="col-xl-4 col-12 d-flex py-4 px-5">
           <LinkSVG />
-          <span><a href={props.link} className="card-link">{props.link}</a></span>
+          <span><a target="_blank" href={props.link} className="card-link" rel="noreferrer">{props.link}</a></span>
         </div>
 {/* tagline section  */}
         <div className="col-xl-4 col-12 d-flex py-4 px-5">
