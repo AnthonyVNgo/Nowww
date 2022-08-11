@@ -20,7 +20,7 @@ values
   ('wisdom'),
   ('misc');
 
-insert into "nowww" ("userId", "category", "content", "categoryId", "entryId")
+insert into "nowww" ("userId", "category", "content", "categoryId", "EntryId")
 values
   ('1', '', 'Building e-commerce websites for pets!', '1', '2'),
   ('1', '', 'Learning CSS to style my projects', '1', '3'),

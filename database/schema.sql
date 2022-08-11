@@ -28,7 +28,7 @@ CREATE TABLE "nowww" (
 	"category" TEXT,
 	"content" TEXT,
 	"categoryId" int,
-	"entryId" serial NOT NULL
+	"EntryId" serial NOT NULL
 ) WITH (
   OIDS=FALSE
 );
