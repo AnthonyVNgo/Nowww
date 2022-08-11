@@ -55,6 +55,12 @@ export default class AuthForm extends React.Component {
     const submitButtonText = action === 'sign-up'
       ? 'Register'
       : 'Log In';
+    const usernameInputValue = action === 'sign-in'
+      ? 'Anthony Ngo'
+      : '';
+    const passwordInputValue = action === 'sign-in'
+      ? 'Password'
+      : '';
     return (
       <form className="w-100 p-5" onSubmit={handleSubmit}>
         <header className="text-center">
@@ -68,6 +74,7 @@ export default class AuthForm extends React.Component {
           </label>
           <input
             placeholder='Username'
+            value={usernameInputValue}
             required
             autoFocus
             id="username"
@@ -81,6 +88,7 @@ export default class AuthForm extends React.Component {
           </label>
           <input
             placeholder='Password'
+            value={passwordInputValue}
             required
             id="password"
             type="password"
