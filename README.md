@@ -2,7 +2,7 @@
 A full stack JavaScript application for professionals who want to share a brief written description of their current projects (Nowwws)
 
 ## Inspiration
-This project was inspired by the concept of a "Now Page" and combines the user profile features from [OurNows.com](https://ournows.com/f/explore) with the card gallery aesthetic of [ADPList.org](https://adplist.org/explore?tab=mentors).
+This project was inspired by the concept of a "[Now Page](https://sive.rs/nowff)" and combines the user profile features from [OurNows.com](https://ournows.com/f/explore) with the card gallery aesthetic of [ADPList.org](https://adplist.org/explore?tab=mentors).
 
 ## Technologies Used
 - PostgreSQL
